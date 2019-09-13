@@ -9,8 +9,7 @@
   <div class="logo-header"><a href="#"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a></div>
 
   <div class="search">
-    <p>Поиск:</p>
-    <!-- здесь будет форма -->
+    <input type="search" name="search" placeholder="Поиск:">
   </div>
 
   <div class="user-navigation">
@@ -27,7 +26,7 @@
 
   <address class="contacts-header">
     <a class="tel-header" href="tel:+78125550555">+7 (812) 555-05-55</a>
-    <p class="address-header">г. Санкт-Петербург, ул. Б.</p>
+    <p class="address-header">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
   </address>
 
   <div class="user-login">
@@ -39,7 +38,7 @@
     <a href="#">Личный кабинет</a>
   </div>
 
-  <nav class="main-navigation">
+  <nav class="main-navigation" aria-label="Навигация по сайту">
     <ul class="main-navigation-list">
       <li class="main-navigation-item"><a href="index.html">Главная</a></li>
       <li class="main-navigation-item"><a href="#">Компания</a></li>
@@ -67,8 +66,47 @@
   </div>
 
   <section class="filters">
-    <h2 class="header-filter">Фильтр товаров</h2>
-    <!-- Здесь будет форма -->
+    <h2 class="header-filters">Фильтр</h2>
+    <form class="filters-form" action="https://echo.htmlacademy.ru" method="post">
+      <fieldset class="filters-checkbox-group">
+        <legend>Производители:</legend>
+        <ul class="filters-checkbox-list">
+          <li class="filters-checkbox-item">
+            <input type="checkbox" name="bosch" id="bosch-filter" checked>
+            <label for="bosch-filter">BOSCH</label>
+          </li>
+          <li class="filters-checkbox-item">
+            <input type="checkbox" name="interskol" id="interskol-filter">
+            <label for="interskol-filter">ИНТЕРСКОЛ</label>
+          </li>
+          <li class="filters-checkbox-item">
+            <input type="checkbox" name="makita" id="makita-filter" checked>
+            <label for="makita-filter">MAKITA</label>
+          </li>
+          <li class="filters-checkbox-item">
+            <input type="checkbox" name="dewalt" id="dewalt-filter">
+            <label for="dewalt-filter">DEWALT</label>
+          </li>
+          <li class="filters-checkbox-item">
+            <input type="checkbox" name="hitachi" id="hitachi-filter">
+            <label for="hitachi-filter">HITACHI</label>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset class="filters-radio-group">
+        <legend>Питание:</legend>
+        <ul class="filters-radio-list">
+          <li class="filters-radio-item">
+            <input type="radio" name="battery" id="battery-filter" checked>
+            <label for="battery-filter">АККУМУЛЯТОРНЫЕ</label>
+          </li>
+          <li class="filters-radio-item">
+            <input type="radio" name="network" id="network-filter">
+            <label for="network-filter">СЕТЕВЫЕ</label>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
   </section>
 
   <h2 class="header-product-list">Список перфораторов</h2>
@@ -296,9 +334,9 @@
       Все права защищены</p>
 
     <ul class="social-list">
-      <li class="social-item social-item-vk"><a href="#">Вконтакте</a></li>
-      <li class="social-item social-item-fb"><a href="#">Facebook</a></li>
-      <li class="social-item social-item-ig"><a href="#">Instagram</a></li>
+      <li class="social-item social-item-vk"><a href="#" aria-label="Мы во Вконтакте"></a></li>
+      <li class="social-item social-item-fb"><a href="#" aria-label="Мы в Facebook"></a></li>
+      <li class="social-item social-item-ig"><a href="#" aria-label="Мы в Instagram"></a></li>
     </ul>
 
     <p class="feedback">Обратная связь</p>
@@ -311,12 +349,12 @@
 
 <div class="modal-cart">
   <div class="modal-cart-text">
-    <a href="#">X</a>
     <p class="">Товар добавлен в корзину</p>
+    <button class="close" type="button" aria-label="Закрыть">X</button>
   </div>
   <div class="modal-cart-button">
     <a href="#">Оформить заказ</a>
-    <a href="#">Продолжить покупки</a>
+    <button class="btn modal-cart-button-continue" type="button">Продолжить покупки</button>
   </div>
 </div>
 </body>

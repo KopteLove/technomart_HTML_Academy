@@ -9,8 +9,7 @@
   <div class="logo-header"><a href="#"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a></div>
 
   <div class="search">
-    <p>Поиск:</p>
-    <!-- здесь будет форма -->
+    <input type="search" name="search" placeholder="Поиск:">
   </div>
 
   <div class="user-navigation">
@@ -27,7 +26,7 @@
 
   <address class="contacts-header">
     <a class="tel-header" href="tel:+78125550555">+7 (812) 555-05-55</a>
-    <p class="address-header">г. Санкт-Петербург, ул. Б.</p>
+    <p class="address-header">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
   </address>
 
   <div class="user">
@@ -68,13 +67,13 @@
     <h2 class="slide-up-header">Перфораторы</h2>
     <p class="slide-up-text">Настоящие мужские игрушки</p>
     <img class="slide-up-img" src="img/slider-1.jpg" width="620" height="266" alt="Перфораторы">
-    <a class="slide-button" href="catalog.html">Открыть каталог</a>
+    <a class="btn slide-button" href="catalog.html">Открыть каталог</a>
   </div>
   <div class="slide-up">
     <h2 class="slide-up-header">Дрели</h2>
     <p class="slide-up-text">Соседям на радость</p>
     <img class="slide-up-img" src="img/slider-2.jpg" width="620" height="266" alt="Дрели">
-    <a class="slide-button" href="catalog.html">Открыть каталог</a>
+    <a class=" btn slide-button" href="catalog.html">Открыть каталог</a>
   </div>
 
   <div class="block-4">
@@ -89,7 +88,7 @@
 
   <section class="popular-product">
     <h2 class="heading">Популярные товары</h2>
-    <a class="btn-all-product" href="">Все популярные товары</a>
+    <a class="btn button-all-product" href="">Все популярные товары</a>
     <ul class="product-list">
       <li class="product-item">
         <h3 class="product-header">
@@ -174,7 +173,7 @@
 
   <section class="popular-producer">
     <h2 class="heading">Популярные производители</h2>
-    <a class="btn-all-producer" href="#">Все производители</a>
+    <a class="btn button-all-producer" href="#">Все производители</a>
     <ul class="producer-list">
       <li class="producer-item"><a href="#"><img src="img/bosch.png" width="126" height="37" alt="Bosch"></a></li>
       <li class="producer-item"><a href="#"><img src="img/makita.png" width="123" height="40" alt="Makita"></a> </li>
@@ -242,7 +241,7 @@
       <li class="about-traffic-item">Автотрейдинг</li>
       <li class="about-traffic-item">ЖелДорЗкспедиция</li>
     </ul>
-    <a href="#">Подробнее о компании</a>
+    <a class="btn button-about" href="#">Подробнее о компании</a>
   </section>
 
   <section class="map">
@@ -252,7 +251,7 @@
     <a href="#">
       <img class="map-img" src="img/map.png" width="300" height="158" alt="Карта">
     </a>
-    <a href="#">Заблудились? напишите нам!</a>
+    <a class="btn button-write-us" href="#">Заблудились? напишите нам!</a>
   </section>
 </main>
 
@@ -284,9 +283,9 @@
       Все права защищены</p>
 
     <ul class="social-list">
-      <li class="social-item social-item-vk"><a href="#">Вконтакте</a></li>
-      <li class="social-item social-item-fb"><a href="#">Facebook</a></li>
-      <li class="social-item social-item-ig"><a href="#">Instagram</a></li>
+      <li class="social-item social-item-vk"><a href="#" aria-label="Мы во Вконтакте"></a></li>
+      <li class="social-item social-item-fb"><a href="#" aria-label="Мы в Facebook"></a></li>
+      <li class="social-item social-item-ig"><a href="#" aria-label="Мы в Instagram"></a></li>
     </ul>
 
     <p class="feedback">Обратная связь</p>
@@ -298,16 +297,28 @@
 </footer>
 
 <div class="modal-write-us">
-  <a href="#">X</a>
-  <div class="modal-write-us-form">
-    <!-- Здесь будет форма -->
-    <p>Ваше имя:</p>
-    <p>Ваш e-mail:</p>
-    <p>Текст письма:</p>
-  </div>
-  <div class="modal-write-us-button">
-    <a href="#">Отправить</a>
-  </div>
+  <form class="modal-write-us-form" action="https://echo.htmlacademy.ru" method="post">
+    <label for="user-name">Ваше имя:</label>
+    <input type="text" name="name" id="user-name" placeholder="Имя Фамилия">
+    <label for="user-email">Ваш e-mail:</label>
+    <input type="text" name="email" id="user-email" placeholder="email@example.com">
+    <label for="comment">
+      Текст письма:
+      <textarea name="user-comment" id="comment" placeholder="В свободной форме" rows="4"></textarea>
+    </label>
+    <button class="btn modal-write-us-submit" type="submit">Отправить</button>
+  </form>
+  <button class="close" type="button" aria-label="Закрыть">X</button>
 </div>
+
+<div class="map-popup">
+  <p class="map-popup-container">
+    <img class="map-popup-img" src="img/map-popup.png" width="940" height="446" alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
+  </p>
+  <button class="close" type="button" aria-label="Закрыть">
+    X
+  </button>
+</div>
+
 </body>
 </html>
