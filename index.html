@@ -9,7 +9,10 @@
   <div class="logo-header"><a href="#"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a></div>
 
   <div class="search">
-    <input type="search" name="search" placeholder="Поиск:">
+    <form class="search-form"  action="https://echo.htmlacademy.ru" method="post">
+      <input type="text" name="search" placeholder="Поиск:">
+      <button class="button-search"></button>
+    </form>
   </div>
 
   <div class="user-navigation">
@@ -302,22 +305,18 @@
     <input type="text" name="name" id="user-name" placeholder="Имя Фамилия">
     <label for="user-email">Ваш e-mail:</label>
     <input type="text" name="email" id="user-email" placeholder="email@example.com">
-    <label for="comment">
-      Текст письма:
-      <textarea name="user-comment" id="comment" placeholder="В свободной форме" rows="4"></textarea>
-    </label>
+    <label for="comment">Текст письма:</label>
+    <textarea name="user-comment" id="comment" placeholder="В свободной форме" rows="4"></textarea>
     <button class="btn modal-write-us-submit" type="submit">Отправить</button>
   </form>
-  <button class="close" type="button" aria-label="Закрыть">X</button>
+  <button class="close" type="button" aria-label="Закрыть"></button>
 </div>
 
 <div class="map-popup">
   <p class="map-popup-container">
     <img class="map-popup-img" src="img/map-popup.png" width="940" height="446" alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
   </p>
-  <button class="close" type="button" aria-label="Закрыть">
-    X
-  </button>
+  <button class="close" type="button" aria-label="Закрыть"></button>
 </div>
 
 </body>
