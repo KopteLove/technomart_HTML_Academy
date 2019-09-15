@@ -11,8 +11,9 @@
 
   <div class="search">
     <form class="search-form">
-      <input type="text" name="search" placeholder="Поиск:">
-      <button type="submit" class="button-search"></button>
+      <label for="search" class="visual-hidden" aria-label="Поле поиска"></label>
+      <input type="text" name="search" id="search" placeholder="Поиск:">
+      <button type="submit" class="button-search" aria-label="Искать"></button>
     </form>
   </div>
 
@@ -66,7 +67,7 @@
   </div>
 
   <div class="header-page-container">
-    <h1 class="header-page">Перфораторы</h1>
+    <h1 class="heading">Перфораторы</h1>
   </div>
 
   <section class="filters">
@@ -74,8 +75,7 @@
     <h2 class="header-filters">Фильтр</h2>
     <form class="filters-form" action="https://echo.htmlacademy.ru" method="post">
       <fieldset class="filters-range-group">
-        <legend class="filter-header"></legend>
-        <h3 class="filter-header">Цена</h3>
+        <legend class="filter-header">Цена</legend>
         <button class="btn-range-min" type="button" aria-label="Минимальная цена"></button>
         <button class="btn-range-max" type="button" aria-label="Максимальная цена"></button>
         <div class="slider-color"></div>
@@ -322,9 +322,9 @@
     <li class="page-item"><a href="#">Следующая</a></li>
   </ul>
 
-  <section class="about-puncher">
-    <h2 class="about-puncher-header">ПАРА СЛОВ О ПЕРФОРАТОРАХ</h2>
-    <p class="about-puncher-text">
+  <section class="category-description">
+    <h2 class="category-description-header heading-secondary">Пара слов о перфораторах</h2>
+    <p class="category-description-text">
       Перфоратор — универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче,
       бетоне и камне.
       Существуют электромеханические и пневматические перфораторы. Современные модели могут выполнять функции дрели,
