@@ -3,23 +3,29 @@
 <head>
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Cuprum|PT+Sans:400,700&display=swap&subset=cyrillic"
+        rel="stylesheet">
 </head>
 <body>
 <header class="main-header">
-  <div class="logo-header"><a href="#"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a></div>
+  <div class="header-top">
+    <div class="logo-header"><a href=""><img src="img/logo.svg" width="108" height="18" alt="Техномарт"></a></div>
 
-  <div class="search">
-    <form class="search-form">
-      <label for="search" class="visual-hidden" aria-label="Поле поиска"></label>
-      <input type="text" name="search" id="search" placeholder="Поиск:">
-      <button type="submit" class="button-search" aria-label="Искать"></button>
-    </form>
-  </div>
+    <div class="search">
+      <form class="search-form">
+        <label for="search" class="visual-hidden" aria-label="Поле поиска"></label>
+        <input type="text" name="search" id="search" placeholder="Поиск:">
+        <button type="submit" class="button-search" aria-label="Искать"></button>
+      </form>
+    </div>
 
-  <div class="user-navigation">
-    <a class="bookmark" href="#">Закладки: 0</a>
-    <a class="basket" href="#">Корзина: 0</a>
-    <a class="order" href="#">Оформить заказ</a>
+    <div class="user-navigation">
+      <a class="bookmark" href="#">Закладки: 0</a>
+      <a class="basket" href="#">Корзина: 0</a>
+      <a class="order" href="#">Оформить заказ</a>
+    </div>
   </div>
 
   <h1>
@@ -91,8 +97,9 @@
   </div>
 
   <section class="popular-product">
+    <div class="heading-container"
     <h2 class="heading-popular heading-secondary">Популярные товары</h2>
-    <a class="btn button-all-product" href="">Все популярные товары</a>
+    <a class="btn button-all" href="">Все популярные товары</a>
     <ul class="product-list">
       <li class="product-item">
         <h3 class="product-header">
@@ -176,23 +183,25 @@
   </section>
 
   <section class="popular-producer">
-    <h2 class="heading-popular heading-secondary">Популярные производители</h2>
-    <a class="btn button-all-producer" href="#">Все производители</a>
+    <div class="heading-container">
+      <h2 class="heading-popular heading-secondary">Популярные производители</h2>
+      <a class="btn button-all" href="#">Все производители</a>
+    </div>
     <ul class="producer-list">
       <li class="producer-item"><a href="#"><img src="img/bosch.png" width="126" height="37" alt="Bosch"></a></li>
-      <li class="producer-item"><a href="#"><img src="img/makita.png" width="123" height="40" alt="Makita"></a> </li>
-      <li class="producer-item"><a href="#"><img src="img/dewalt.png" width="146" height="44" alt="DeWalt"></a> </li>
-      <li class="producer-item"><a href="#"><img src="img/interskol.png" width="184" height="32" alt="Интерскол"></a> </li>
-      <li class="producer-item"><a href="#"><img src="img/hitachi.png" width="169" height="31" alt="Hitachi"></a> </li>
-      <li class="producer-item"><a href="#"><img src="img/lg.png" width="121" height="73" alt="LG"></a> </li>
-      <li class="producer-item"><a href="#"><img src="img/aeg.png" width="151" height="96" alt="AEG"></a> </li>
-      <li class="producer-item"><a href="#"><img src="img/metabo.png" width="204" height="69" alt="Metabo"></a> </li>
+      <li class="producer-item"><a href="#"><img src="img/makita.png" width="123" height="40" alt="Makita"></a></li>
+      <li class="producer-item"><a href="#"><img src="img/dewalt.png" width="146" height="44" alt="DeWalt"></a></li>
+      <li class="producer-item"><a href="#"><img src="img/interskol.png" width="184" height="32" alt="Интерскол"></a></li>
+      <li class="producer-item"><a href="#"><img src="img/hitachi.png" width="169" height="31" alt="Hitachi"></a></li>
+      <li class="producer-item"><a href="#"><img src="img/lg.png" width="121" height="73" alt="LG"></a></li>
+      <li class="producer-item"><a href="#"><img src="img/aeg.png" width="151" height="96" alt="AEG"></a></li>
+      <li class="producer-item"><a href="#"><img src="img/metabo.png" width="204" height="69" alt="Metabo"></a></li>
     </ul>
   </section>
 
   <section class="services">
     <h2 class="services-header heading-secondary">Сервисы</h2>
-    <p class="services-text">
+    <p class="services-text text">
       Хороший интернет-магазин отличается от плохого не только ценами!
       Мы стараемся изо всех сил, чтобы сделать ваши покупки приятными.
     </p>
@@ -203,8 +212,8 @@
     </ul>
 
     <div class="delivery-container">
-      <h3 class="delivery-header">Доставка</h3>
-      <p class="delivery-text">
+      <h3 class="service delivery-header">Доставка</h3>
+      <p class="delivery-text text">
         Мы с удовольствием доставим ваш товар прямо
         к вашему подъезду совершенно бесплатно!
         Ведь мы неплохо заработаем,<br>
@@ -213,8 +222,8 @@
     </div>
 
     <div class="guarantee-container">
-      <h3 class="guarantee-header">Гарантия</h3>
-      <p class="guarantee-text">
+      <h3 class="service guarantee-header">Гарантия</h3>
+      <p class="guarantee-text text">
         Если купленный у нас товар поломается или заискрит,
         а также в случае пожара, спровоцированного его возгоранием,
         вы всегда можете быть уверены в нашей гарантии. Мы обменяем
@@ -224,21 +233,20 @@
     </div>
 
     <div class="credit-container">
-      <h3 class="credit-header">Кредит</h3>
-      <p class="credit-text">
-      Залезть в долговую яму стало проще!
-      Кредитные консультанты придут вам на помощь.
+      <h3 class="service credit-header">Кредит</h3>
+      <p class="credit-text text">
+        Залезть в долговую яму стало проще!
+        Кредитные консультанты придут вам на помощь.
       </p>
       <a class="button-request" href="#">Отправить заявку</a>
     </div>
   </section>
 
   <section class="about-container">
-    <h2 class="visual-hidden">О нас</h2>
-    <p class="about-header">Компания «Техномарт»</p>
-    <p class="about-us">Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта
+    <h2 class="about-header heading-secondary">Компания «Техномарт»</h2>
+    <p class="about-us text">Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта
       и строительства не оставит равнодушными любителей сэкономить на гастарбайтерах.</p>
-    <p class="about-us">Мы можем доставить ваш товар в самые отдаленные точки России!
+    <p class="about-us text">Мы можем доставить ваш товар в самые отдаленные точки России!
       Техномарт работает со многими транспортными компаниями:</p>
     <ul class="about-traffic-list">
       <li class="about-traffic-item">Деловые линии</li>
@@ -249,8 +257,8 @@
   </section>
 
   <section class="map">
-    <h2 class="map-header">Контакты</h2>
-    <p class="map-text">Вы можете забрать товар сами,<br>
+    <h2 class="map-header heading-secondary">Контакты</h2>
+    <p class="map-text text">Вы можете забрать товар сами,<br>
       заехав в наш офис:</p>
     <a href="#">
       <img class="map-img" src="img/map.png" width="300" height="158" alt="Карта">
@@ -260,7 +268,7 @@
 </main>
 
 <footer class="main-footer">
-  <div class="logo-footer"><a href="#"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a></div>
+  <div class="logo-footer"><a href="#"><img src="img/logo.svg" width="136" height="21" alt="Техномарт"></a></div>
 
   <ul class="navigation-list">
     <li class="navigation-item"><a href="">Компания</a></li>
@@ -302,20 +310,23 @@
 
 <div class="modal-write-us">
   <form class="modal-write-us-form" action="https://echo.htmlacademy.ru" method="post">
-    <label for="user-name">Ваше имя:</label>
-    <input type="text" name="name" id="user-name" placeholder="Имя Фамилия">
-    <label for="user-email">Ваш e-mail:</label>
-    <input type="text" name="email" id="user-email" placeholder="email@example.com">
-    <label for="comment">Текст письма:</label>
-    <textarea name="user-comment" id="comment" placeholder="В свободной форме" rows="4"></textarea>
-    <button class="btn modal-write-us-submit" type="submit">Отправить</button>
+    <label class="input-title" for="user-name">Ваше имя:</label>
+    <input class="input-popup" type="text" name="name" id="user-name" placeholder="Имя Фамилия">
+    <label class="input-title" for="user-email">Ваш e-mail:</label>
+    <input class="input-popup" type="text" name="email" id="user-email" placeholder="email@example.com">
+    <label class="input-title" for="comment">Текст письма:</label>
+    <textarea class="comment" name="user-comment" id="comment" placeholder="В свободной форме" rows="4"></textarea>
+    <div class="button-container">
+      <button class="btn modal-write-us-button" type="submit">Отправить</button>
+    </div>
   </form>
-  <button class="close" type="button" aria-label="Закрыть"></button>
+    <button class="close" type="button" aria-label="Закрыть"></button>
 </div>
 
 <div class="map-popup">
   <p class="map-popup-container">
-    <img class="map-popup-img" src="img/map-popup.png" width="940" height="446" alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
+    <img class="map-popup-img" src="img/map-popup.png" width="1736" height="779"
+         alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
   </p>
   <button class="close" type="button" aria-label="Закрыть"></button>
 </div>
