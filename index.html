@@ -24,15 +24,17 @@
     <div class="user-navigation">
       <a class="bookmark" href="#">Закладки: 0</a>
       <a class="basket" href="#">Корзина: 0</a>
-      <a class="order" href="#">Оформить заказ</a>
+      <a class="order color-green" href="#">Оформить заказ</a>
     </div>
   </div>
 
-  <h1>
-    Интернет-магазин
-    строительных материалов
-    и инструментов для ремонта
-  </h1>
+  <div class="container-h1">
+    <h1 class="header-h1">
+      Интернет-магазин
+      строительных материалов
+      и инструментов для ремонта
+    </h1>
+  </div>
 
   <address class="contacts-header">
     <a class="tel-header" href="tel:+78125550555">+7 (812) 555-05-55</a>
@@ -40,11 +42,11 @@
   </address>
 
   <div class="user">
-    <a class="button-input" href="#">Войти</a>
-    <a class="button-registration" href="#">Регистрация</a>
+    <a class="btn-user button-input" href="#">Войти</a>
+    <a class="btn-user button-registration" href="#">Регистрация</a>
   </div>
 
-  <nav class="main-navigation">
+  <nav class="main-navigation" aria-label="Навигация по сайту">
     <ul class="main-navigation-list">
       <li class="main-navigation-item"><a href="#">Главная</a></li>
       <li class="main-navigation-item"><a href="#">Компания</a></li>
@@ -97,9 +99,10 @@
   </div>
 
   <section class="popular-product">
-    <div class="heading-container"
-    <h2 class="heading-popular heading-secondary">Популярные товары</h2>
-    <a class="btn button-all" href="">Все популярные товары</a>
+    <div class="heading-container">
+      <h2 class="heading-popular heading-secondary">Популярные товары</h2>
+      <a class="btn button-all" href="">Все популярные товары</a>
+    </div>
     <ul class="product-list">
       <li class="product-item">
         <h3 class="product-header">
@@ -116,7 +119,7 @@
         <del class="old-price">32500 р.</del>
         <a class="price" href="#">25500 р.</a>
         <div>
-          <a class="button-buy" href="#">Купить</a>
+          <a class="button-buy color-green" href="#">Купить</a>
           <a class="button-bookmark" href="#">В закладки</a>
         </div>
       </li>
@@ -135,8 +138,8 @@
         </p>
         <del class="old-price">22500 р.</del>
         <a class="price" href="#">15500 р.</a>
-        <div class="button-container">
-          <a class="button-buy" href="#">Купить</a>
+        <div>
+          <a class="button-buy color-green" href="#">Купить</a>
           <a class="button-bookmark" href="#">В закладки</a>
         </div>
       </li>
@@ -156,7 +159,7 @@
         <del class="old-price">30500 р.</del>
         <a class="price" href="#">25500 р.</a>
         <div>
-          <a class="button-buy" href="#">Купить</a>
+          <a class="button-buy color-green" href="#">Купить</a>
           <a class="button-bookmark" href="#">В закладки</a>
         </div>
       </li>
@@ -175,7 +178,7 @@
         </p>
         <a class="price" href="#">12500 р.</a>
         <div>
-          <a class="button-buy" href="#">Купить</a>
+          <a class="button-buy color-green" href="#">Купить</a>
           <a class="button-bookmark" href="#">В закладки</a>
         </div>
       </li>
@@ -238,7 +241,7 @@
         Залезть в долговую яму стало проще!
         Кредитные консультанты придут вам на помощь.
       </p>
-      <a class="button-request" href="#">Отправить заявку</a>
+      <a class="btn button-request" href="#">Отправить заявку</a>
     </div>
   </section>
 
@@ -325,10 +328,21 @@
 
 <div class="map-popup">
   <p class="map-popup-container">
-    <img class="map-popup-img" src="img/map-popup.png" width="1736" height="779"
+    <img class="map-popup-img" src="img/map-popup.png" width="940" height="446"
          alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
   </p>
   <button class="close" type="button" aria-label="Закрыть"></button>
+</div>
+
+<div class="modal-cart">
+  <div class="modal-cart-text">
+    <p class="heading-secondary">Товар добавлен в корзину</p>
+    <button class="close" type="button" aria-label="Закрыть"></button>
+  </div>
+  <div class="modal-cart-button">
+    <a class="btn modal-cart-button-buy" href="#">Оформить заказ</a>
+    <button class="btn modal-cart-button-continue" type="button">Продолжить покупки</button>
+  </div>
 </div>
 
 </body>
