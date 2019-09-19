@@ -1,35 +1,81 @@
+@font-face {
+  font-family: 'Cuprum';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url("../fonts/cuprum.woff2") format("woff2");
+    url("../fonts/cuprum.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Cuprum';
+  font-style: normal;
+  font-weight: bold;
+  src:
+    url("../fonts/cuprumbold.woff2") format("woff2");
+    url("../fonts/cuprumbold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Cuprum';
+  font-style: italic;
+  font-weight: normal;
+  src:
+    url("../fonts/cuprumitalic.woff2") format("woff2");
+    url("../fonts/cuprumitalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Cuprum';
+  font-style: italic;
+  font-weight: bold;
+  src:
+    url("../fonts/cuprumbolditalic.woff2") format("woff2");
+    url("../fonts/cuprumbolditalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url("../fonts/ptsans.woff2") format("woff2");
+    url("../fonts/ptsans.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: bold;
+  src:
+    url("../fonts/ptsansbold.woff2") format("woff2");
+    url("../fonts/ptsansbold.woff") format("woff");
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "PT Sans", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 24px;
   font-weight: normal;
   color: #000000;
-  background-color: #bed7e7;
+  background-color: #ffffff;
 }
 
 a {
   text-decoration: none;
-  color: #ffffff;
 }
 
-ul {
-  list-style: none;
-}
 
                                                             /*header*/
 
 .main-header {
-  width: 100%;
-  height: 320px;
   background-color: #f2f6f8;
 }
 
 .header-top {
-  width: 100%;
-  height: 42px;
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 17px;
   line-height: 18px;
   color: #ffffff;
@@ -81,6 +127,8 @@ ul {
 .basket {
   width: 150px;
   height: 42px;
+  color: #ffffff;
+  background-color: #293449;
 }
 
 .bookmark:hover,
@@ -97,6 +145,7 @@ ul {
 .order {
   width: 150px;
   height: 42px;
+  color: #ffffff;
 }
 
 .color-green {
@@ -115,16 +164,16 @@ ul {
 }
 
 .header-h1 {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-style: italic;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
   line-height: 23px;
   color: #ee3643;
 }
 
 .tel-header {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-style: normal;
   font-size: 21px;
   line-height: 21px;
@@ -133,7 +182,7 @@ ul {
 }
 
 .address-header {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-style: normal;
   font-size: 14px;
   line-height: 24px;
@@ -141,7 +190,7 @@ ul {
 }
 
 .btn-user {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 21px;
   line-height: 21px;
   background-color: #ffffff;
@@ -169,7 +218,7 @@ ul {
 }
 
 .user-cabinet a {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 16px;
   line-height: 18px;
   color: #32425c;
@@ -187,18 +236,22 @@ ul {
 }
 
 .main-navigation {
-  width: 940px;
-  height: 60px;
   background-color: #32425c;
+  color: #ffffff;
+ }
+
+.marker-none {
+  list-style:none;
 }
 
 .main-navigation-item a {
   width: 127px;
   height: 60px;
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 17px;
   line-height: 17px;
   background-color: #32425c;
+  color: #ffffff;
 }
 
 .main-navigation-item a:hover {
@@ -216,44 +269,40 @@ ul {
   background-color: #ffffff;
 }
 
-.block-1 {
+.block {
   width: 300px;
   height: 123px;
+}
+
+.block-1 {
   background-color: #ffbf47;
 }
 
 .block-2 {
-  width: 300px;
-  height: 123px;
   background-color: #3bbce3;
 }
 
 .block-3 {
-  width: 300px;
-  height: 123px;
   background-color: #dc91d8;
 }
 
 .block-4 {
-  width: 300px;
-  height: 123px;
   background-color: #8ed78f;
 }
 
 .block-5 {
-  width: 300px;
-  height: 123px;
   background-color: #ffc047;
 }
 
 .block-button {
   width: 135px;
   height: 28px;
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 14px;
   line-height: 18px;
   background-color: rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
+  color: #ffffff;
 }
 
 .block-button:hover {
@@ -266,7 +315,7 @@ ul {
 
 
 .title-block {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 24px;
   line-height: 30px;
   font-weight: bold;
@@ -274,20 +323,19 @@ ul {
 }
 
 .slide-up {
-  width: 620px;
-  height: 266px;
 }
 
 .slide-up-header {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 36px;
   line-height: 36px;
   font-weight: bold;
   color: #ffffff;
+  text-transform: uppercase;
 }
 
 .slide-up-text {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
@@ -302,7 +350,7 @@ ul {
   text-transform: uppercase;
   color: #ffffff;
   background-color: #ee3643;
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
@@ -328,9 +376,10 @@ a.btn {
 }
 
 .heading-secondary {
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 30px;
   line-height: 30px;
+  text-transform: uppercase;
 }
 
 .heading-popular {
@@ -349,7 +398,6 @@ a.btn {
 }
 
 .product-title {
-  font-family: "PT Sans", sans-serif;
   font-size: 18px;
   line-height: 20px;
   font-weight: bold;
@@ -358,7 +406,6 @@ a.btn {
 
 .old-price,
 .price {
-  font-family: "PT Sans", sans-serif;
   font-size: 17px;
   line-height: 18px;
   font-weight: bold;
@@ -368,13 +415,19 @@ a.btn {
   color: #a9a9a9;
 }
 
+.price {
+  background-color: #ee3643;
+  color: #ffffff;
+}
+
 .button-buy,
 .button-bookmark {
   width: 135px;
   height: 38px;
-  font-family: Cuprum, sans-serif;
+  font-family: Cuprum, Arial, sans-serif;
   font-size: 14px;
   line-height: 18px;
+  color: #ffffff;
 }
 
 .button-bookmark {
@@ -417,14 +470,11 @@ a.btn {
                                                            /*services*/
 
 .services {
-  width: 100%;
-  height: 522px;
   background-color: #f2f6f8;
 }
 
 .category-description-text,
 .text {
-  font-family: "PT Sans", sans-serif;
   font-size: 13px;
   line-height: 24px;
 }
@@ -432,7 +482,7 @@ a.btn {
 .services-item {
   width: 240px;
   height: 61px;
-  font-family: "Cuprum", sans-serif;
+  font-family: "Cuprum", Arial, sans-serif;
   font-size: 21px;
   line-height: 30px;
   font-weight: bold;
@@ -444,11 +494,11 @@ a.btn {
   content: "";
   width: 10px;
   height: 279px;
-  background-image: url("img/shadow.png");
+  background-image: url("/img/shadow.png");
 }
 
 .service {
-  font-family: "Cuprum", sans-serif;
+  font-family: "Cuprum", Arial, sans-serif;
   font-size: 36px;
   line-height: 36px;
   color: #32425c;
@@ -471,7 +521,7 @@ a.btn {
                                                            /*about*/
 
 .about-traffic-item {
-  font-family: "Cuprum", sans-serif;
+  font-family: "Cuprum", Arial, sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
@@ -518,7 +568,7 @@ a.btn {
 .address-footer,
 .navigation-footer-item a,
 .navigation-item a {
-  font-family: "Cuprum", sans-serif;
+  font-family: "Cuprum", Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: #f1f5f7;
@@ -544,9 +594,7 @@ a.btn {
   color: rgba(255, 209, 128, 0.5);
 }
 
-.bottom-footer {
-  width: 100%;
-  height: 107px;
+.footer-down {
   background-color: #293449;
 }
 
@@ -566,7 +614,7 @@ a.btn {
 .mail,
 .developer,
 .url {
-  font-family: "Cuprum", sans-serif;
+  font-family: "Cuprum", Arial, sans-serif;
   font-size: 16px;
   line-height: 18px;
   color: #ffffff;
@@ -604,7 +652,7 @@ a.btn {
 }
 
 .input-title {
-  font-family: "Cuprum", sans-serif;
+  font-family: "Cuprum", Arial, sans-serif;
   font-size: 18px;
   line-height: 18px;
 }
@@ -627,7 +675,6 @@ a.btn {
 .header-filters,
 .breadcrumb-item,
 .modal-write-us-form input {
-  font-family: "PT Sans", sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -682,7 +729,6 @@ a.btn {
 }
 
 .filter-header {
-  font-family: "PT Sans", sans-serif;
   font-weight: bold;
   font-size: 17px;
   line-height: 30px;
@@ -690,7 +736,6 @@ a.btn {
 
 .filters-radio-group label,
 .filters-checkbox-list label {
-  font-family: "PT Sans", sans-serif;
   font-size: 15px;
   line-height: 20px;
   text-transform: uppercase;
