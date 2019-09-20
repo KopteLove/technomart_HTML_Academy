@@ -26,15 +26,6 @@
 }
 
 @font-face {
-  font-family: 'Cuprum';
-  font-style: italic;
-  font-weight: bold;
-  src:
-    url("../fonts/cuprumbolditalic.woff2") format("woff2");
-    url("../fonts/cuprumbolditalic.woff") format("woff");
-}
-
-@font-face {
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: normal;
@@ -94,6 +85,10 @@ a {
   display: block;
   width: 220px;
   height: 47px;
+}
+
+.logo-header {
+  display: flex;
 }
 
 .logo-header img {
@@ -702,6 +697,10 @@ a.btn {
 
 .breadcrumb-item a {
   color: #000000;
+}
+
+h1.heading-secondary {
+  color: #32425c;
 }
 
 .header-page-container {
