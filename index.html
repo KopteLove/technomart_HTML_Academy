@@ -15,10 +15,14 @@
       <div class="logo-header"><a href=""><img src="img/logo.svg" width="108" height="18" alt="Техномарт"></a></div>
 
       <div class="search">
-        <form class="search-form">
-          <label for="search" class="visually-hidden" aria-label="Поле поиска"></label>
-          <input type="text" name="search" id="search" placeholder="Поиск:">
-          <button type="submit" class="button-search" aria-label="Искать"></button>
+        <form class="search-form" action="https://echo.htmlacademy.ru" method="post">
+          <label class="visually-hidden" aria-label="Поле поиска"></label>
+          <input type="text" name="search" placeholder="Поиск:">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+            <path fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1
+              0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5
+              2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/>
+          </svg>
         </form>
       </div>
 
@@ -48,23 +52,28 @@
 
       <div class="user">
         <a class="btn-user button-input" href="#">Войти</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+          <path fill="#c5c5c5" d="M14.875 8.5L6 0v6H0v5h6v6z"/>
+          <path fill="#c5c5c5" d="M16.986 15.01h-5.027V17h5
+          .027c2.178 0 3.004-1.81 3.029-3.026V3.028C19.99 1.811 19.164 0 16.986 0h-5.027v1.99h5.027c.839 0 .992.681
+           1.01 1.057v10.904c-.017.376-.171 1.059-1.01 1.059z"/>
+        </svg>
         <a class="btn-user button-registration" href="#">Регистрация</a>
       </div>
     </div>
   </div>
+
   <div class="container">
     <nav class="main-navigation" aria-label="Навигация по сайту">
-      <div class="container">
-        <ul class="main-navigation-list marker-none">
-          <li class="main-navigation-item"><a href="#">Главная</a></li>
-          <li class="main-navigation-item"><a href="#">Компания</a></li>
-          <li class="main-navigation-item"><a href="catalog.html">Каталог</a></li>
-          <li class="main-navigation-item"><a href="#">Новости</a></li>
-          <li class="main-navigation-item"><a href="#">Спецпредложения</a></li>
-          <li class="main-navigation-item"><a href="#">Доставка</a></li>
-          <li class="main-navigation-item"><a href="#">Контакты</a></li>
-        </ul>
-      </div>
+      <ul class="main-navigation-list marker-none">
+        <li class="main-navigation-item"><a href="#">Главная</a></li>
+        <li class="main-navigation-item"><a href="#">Компания</a></li>
+        <li class="main-navigation-item"><a href="catalog.html">Каталог</a></li>
+        <li class="main-navigation-item"><a href="#">Новости</a></li>
+        <li class="main-navigation-item"><a href="#">Спецпредложения</a></li>
+        <li class="main-navigation-item"><a href="#">Доставка</a></li>
+        <li class="main-navigation-item"><a href="#">Контакты</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -76,6 +85,7 @@
     <div class="main-top">
       <div class="block-top">
         <div class="block block-1">
+          <div class="new-flag">Новинка</div>
           <p class="title-block">Материалы</p>
           <a class="block-button" href="#">На любой вкус</a>
         </div>
