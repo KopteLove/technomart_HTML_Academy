@@ -335,7 +335,7 @@
         <h2 class="map-header heading-secondary">Контакты</h2>
         <p class="map-text text">Вы можете забрать товар сами,<br>
           заехав в наш офис:</p>
-        <a class="" href="#">
+        <a href="#">
           <img class="map-img" src="img/map.png" width="300" height="158" alt="Карта">
         </a>
         <a class="btn button-write-us" href="#">Заблудились? напишите нам!</a>
@@ -394,7 +394,7 @@
 
         <div class="developer-container">
           <p class="developer">Разработано &ndash;</p>
-          <a class="url" href="https://up.htmlacademy.ru/htmlcss/26">htmlacademy.ru</a>
+          <a class="url" href="https://htmlacademy.ru/intensive/htmlcss">htmlacademy.ru</a>
         </div>
       </div>
 
@@ -402,7 +402,7 @@
   </div>
 </footer>
 
-<div class="modal-write-us">
+<div class="modal modal-write-us">
   <form class="modal-write-us-form" action="https://echo.htmlacademy.ru" method="post">
     <div class="form-center">
       <div class="write-us-1">
@@ -422,23 +422,35 @@
       <button class="btn modal-write-us-button" type="submit">Отправить</button>
     </div>
   </form>
-  <button class="close" type="button" aria-label="Закрыть"></button>
+  <button class="close close-form" type="button" aria-label="Закрыть"></button>
 </div>
 
-<div class="map-popup">
+<div class="modal map-popup">
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2376.765768725523!2d30
+  .322957960509033!3d59.93855010104689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4
+  696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQ
+  uy4sIDE5LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywgMTkxMTg2!5e0!3m2!1sru!2sru!4v157064377659
+  5!5m2!1sru!2sru" width="940" height="446" frameborder="0" style="border:0;" allowfullscreen="">
+  </iframe>
+
   <img class="map-popup-img" src="img/map-popup.png" width="940" height="446"
        alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
-  <button class="close" type="button" aria-label="Закрыть"></button>
+  <button class="close close-map" type="button" aria-label="Закрыть"></button>
 </div>
 
-<div class="modal-cart">
+<div class="modal modal-cart">
   <p class="heading-cart">Товар добавлен в корзину</p>
-  <button class="close" type="button" aria-label="Закрыть"></button>
+  <button class="close close-cart" type="button" aria-label="Закрыть"></button>
   <div class="modal-cart-button">
     <a class="btn modal-cart-button-buy" href="#">Оформить заказ</a>
     <button class="modal-cart-button-continue" type="button">Продолжить покупки</button>
   </div>
 </div>
+
+<script src="js/write-us.js"></script>
+<script src="js/map.js"></script>
+<script src="js/cart.js"></script>
 
 </body>
 </html>
