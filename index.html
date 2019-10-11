@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="body">
+<body>
+
 <header class="main-header">
 
   <div class="header-top">
@@ -27,8 +28,8 @@
       </div>
 
       <div class="user-navigation">
-        <a class="bookmark" href="#">Закладки: 0</a>
-        <a class="basket" href="#">Корзина: 0</a>
+        <a class="bookmark" href="#">Закладки: <span class="bookmark-quantity">0</span></a>
+        <a class="basket" href="#">Корзина: <span class="basket-quantity">0</span></a>
         <a class="order color-green" href="#">Оформить заказ</a>
       </div>
     </div>
@@ -46,7 +47,7 @@
       </div>
 
       <address class="contacts-header">
-        <a class="tel-header" href="tel:+78125550555">+7 (812) 555-05-55</a>
+        <a class="tel-header" href="tel:88125550555">+7 (812) 555-05-55</a>
         <p class="address-header">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
       </address>
 
@@ -165,8 +166,8 @@
                    alt="Перфоратор BOSCH BFG 9000">
             </a>
           </p>
-          <del class="old-price">32500 р.</del>
-          <a class="price" href="#">25500 р.</a>
+          <del class="old-price">32500 p.</del>
+          <a class="price" href="#">25500 p.</a>
           <div class="actions">
             <a class="button-buy" href="#">Купить</a>
             <a class="button-bookmark" href="#">В закладки</a>
@@ -186,8 +187,8 @@
                    alt="Перфоратор BOSCH BFG 3000">
             </a>
           </p>
-          <del class="old-price">22500 р.</del>
-          <a class="price" href="#">15500 р.</a>
+          <del class="old-price">22500 p.</del>
+          <a class="price" href="#">15500 p.</a>
           <div class="actions">
             <a class="button-buy" href="#">Купить</a>
             <a class="button-bookmark" href="#">В закладки</a>
@@ -207,8 +208,8 @@
                    alt="Перфоратор BOSCH BFG 6000">
             </a>
           </p>
-          <del class="old-price">30500 р.</del>
-          <a class="price" href="#">25500 р.</a>
+          <del class="old-price">30500 p.</del>
+          <a class="price" href="#">25500 p.</a>
           <div class="actions">
             <a class="button-buy" href="#">Купить</a>
             <a class="button-bookmark" href="#">В закладки</a>
@@ -228,7 +229,7 @@
                    alt="Перфоратор BOSCH BFG 2000">
             </a>
           </p>
-          <a class="price" href="#">12500 р.</a>
+          <a class="price" href="#">12500 p.</a>
           <div class="actions">
             <a class="button-buy" href="#">Купить</a>
             <a class="button-bookmark" href="#">В закладки</a>
@@ -280,33 +281,39 @@
 
         <ul class="services-list marker-none">
           <li class="slider-bottom delivery-container">
-            <h3 class="slider-bottom-header delivery-header">Доставка</h3>
-            <p class="slider-bottom-text delivery-text text">
-              Мы с удовольствием доставим ваш товар прямо
-              к вашему подъезду совершенно бесплатно!
-              Ведь мы неплохо заработаем,<br>
-              поднимая его на ваш этаж!
-            </p>
+            <div class="slide-bottom-container">
+              <h3 class="slider-bottom-header delivery-header">Доставка</h3>
+              <p class="slider-bottom-text delivery-text text">
+                Мы с удовольствием доставим ваш товар прямо
+                к вашему подъезду совершенно бесплатно!
+                Ведь мы неплохо заработаем,<br>
+                поднимая его на ваш этаж!
+              </p>
+            </div>
           </li>
 
           <li class="slider-bottom guarantee-container">
-            <h3 class="slider-bottom-header guarantee-header">Гарантия</h3>
-            <p class="slider-bottom-text guarantee-text text">
-              Если купленный у нас товар поломается или заискрит,<br>
-              а также в случае пожара, спровоцированного его возгоранием,
-              вы всегда можете быть уверены в нашей гарантии. Мы обменяем
-              сгоревший товар на новый.<br>
-              Дом уж восстановите как-нибудь сами.
-            </p>
+            <div class="slide-bottom-container">
+              <h3 class="slider-bottom-header guarantee-header">Гарантия</h3>
+              <p class="slider-bottom-text guarantee-text text">
+                Если купленный у нас товар поломается или заискрит,<br>
+                а также в случае пожара, спровоцированного его возгоранием,
+                вы всегда можете быть уверены в нашей гарантии. Мы обменяем
+                сгоревший товар на новый.<br>
+                Дом уж восстановите как-нибудь сами.
+              </p>
+            </div>
           </li>
 
           <li class="slider-bottom credit-container">
-            <h3 class="slider-bottom-header credit-header">Кредит</h3>
-            <p class="slider-bottom-text credit-text text">
-              Залезть в долговую яму стало проще!
-              Кредитные консультанты придут вам на помощь.
-            </p>
-            <a class="btn button-request" href="#">Отправить заявку</a>
+            <div class="slide-bottom-container">
+              <h3 class="slider-bottom-header credit-header">Кредит</h3>
+              <p class="slider-bottom-text credit-text text">
+                Залезть в долговую яму стало проще!
+                Кредитные консультанты придут вам на помощь.
+              </p>
+              <a class="btn button-request" href="#">Отправить заявку</a>
+            </div>
           </li>
         </ul>
       </div>
@@ -335,7 +342,7 @@
         <h2 class="map-header heading-secondary">Контакты</h2>
         <p class="map-text text">Вы можете забрать товар сами,<br>
           заехав в наш офис:</p>
-        <a href="#">
+        <a class="map-link" href="map.html">
           <img class="map-img" src="img/map.png" width="300" height="158" alt="Карта">
         </a>
         <a class="btn button-write-us" href="#">Заблудились? напишите нам!</a>
@@ -352,7 +359,7 @@
 
       <address class="contacts-footer">
         <p class="address-footer">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
-        <p class="tel-footer">+7 (812) 555-05-55</p>
+        <a class="tel-footer" href="tel:88125550555">+7 (812) 555-05-55</a>
       </address>
     </div>
 
@@ -436,6 +443,7 @@
 
   <img class="map-popup-img" src="img/map-popup.png" width="940" height="446"
        alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
+
   <button class="close close-map" type="button" aria-label="Закрыть"></button>
 </div>
 
@@ -444,13 +452,11 @@
   <button class="close close-cart" type="button" aria-label="Закрыть"></button>
   <div class="modal-cart-button">
     <a class="btn modal-cart-button-buy" href="#">Оформить заказ</a>
-    <button class="modal-cart-button-continue" type="button">Продолжить покупки</button>
+    <button class="modal-cart-button-continue" type="button"><span>Продолжить покупки</span></button>
   </div>
 </div>
 
-<script src="js/write-us.js"></script>
-<script src="js/map.js"></script>
-<script src="js/cart.js"></script>
+<script src="js/script-mini.js"></script>
 
 </body>
 </html>

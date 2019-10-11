@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <header class="main-header">
 
   <div class="header-top">
@@ -28,8 +29,8 @@
       </div>
 
       <div class="user-navigation">
-        <a class="bookmark" href="#">Закладки: 0</a>
-        <a class="basket" href="#">Корзина: 10</a>
+        <a class="bookmark" href="#">Закладки: <span class="bookmark-quantity">0</span></a>
+        <a class="basket" href="#">Корзина: <span class="basket-quantity">0</span></a>
         <a class="order color-green" href="#">Оформить заказ</a>
       </div>
     </div>
@@ -236,7 +237,7 @@
             </ul>
           </fieldset>
 
-          <button type="submit" class="button-filters">Показать</button>
+          <button type="submit" class="button-filters"><span>Показать</span></button>
 
         </form>
       </section>
@@ -281,8 +282,8 @@
                        alt="Перфоратор BOSCH BFG 3000">
                 </a>
               </p>
-              <del class="old-price">22500 р.</del>
-              <a class="price" href="#">15500 р.</a>
+              <del class="old-price">22500 p.</del>
+              <a class="price" href="#">15500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -302,8 +303,8 @@
                        alt="Перфоратор BOSCH BFG 6000">
                 </a>
               </p>
-              <del class="old-price">30500 р.</del>
-              <a class="price" href="#">25500 р.</a>
+              <del class="old-price">30500 p.</del>
+              <a class="price" href="#">25500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -323,7 +324,7 @@
                        alt="Перфоратор BOSCH BFG 2000">
                 </a>
               </p>
-              <a class="price" href="#">12500 р.</a>
+              <a class="price" href="#">12500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -343,8 +344,8 @@
                        alt="Перфоратор BOSCH BFG 3000">
                 </a>
               </p>
-              <del class="old-price">22500 р.</del>
-              <a class="price" href="#">15500 р.</a>
+              <del class="old-price">22500 p.</del>
+              <a class="price" href="#">15500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -364,8 +365,8 @@
                        alt="Перфоратор BOSCH BFG 6000">
                 </a>
               </p>
-              <del class="old-price">30500 р.</del>
-              <a class="price" href="#">25500 р.</a>
+              <del class="old-price">30500 p.</del>
+              <a class="price" href="#">25500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -385,7 +386,7 @@
                        alt="Перфоратор BOSCH BFG 2000">
                 </a>
               </p>
-              <a class="price" href="#">12500 р.</a>
+              <a class="price" href="#">12500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -405,8 +406,8 @@
                        alt="Перфоратор BOSCH BFG 3000">
                 </a>
               </p>
-              <del class="old-price">22500 р.</del>
-              <a class="price" href="#">15500 р.</a>
+              <del class="old-price">22500 p.</del>
+              <a class="price" href="#">15500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -426,8 +427,8 @@
                        alt="Перфоратор BOSCH BFG 6000">
                 </a>
               </p>
-              <del class="old-price">30500 р.</del>
-              <a class="price" href="#">25500 р.</a>
+              <del class="old-price">30500 p.</del>
+              <a class="price" href="#">25500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -447,7 +448,7 @@
                        alt="Перфоратор BOSCH BFG 2000">
                 </a>
               </p>
-              <a class="price" href="#">12500 р.</a>
+              <a class="price" href="#">12500 p.</a>
               <div class="actions">
                 <a class="button-buy" href="#">Купить</a>
                 <a class="button-bookmark" href="#">В закладки</a>
@@ -491,7 +492,7 @@
 
       <address class="contacts-footer">
         <p class="address-footer">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
-        <p class="tel-footer">+7 (812) 555-05-55</p>
+        <a class="tel-footer" href="tel:88125550555">+7 (812) 555-05-55</a>
       </address>
     </div>
 
@@ -546,11 +547,11 @@
   <button class="close close-cart" type="button" aria-label="Закрыть"></button>
   <div class="modal-cart-button">
     <a class="btn modal-cart-button-buy" href="#">Оформить заказ</a>
-    <button class="modal-cart-button-continue" type="button">Продолжить покупки</button>
+    <button class="modal-cart-button-continue" type="button"><span>Продолжить покупки</span></button>
   </div>
 </div>
 
-<script src="js/cart.js"></script>
+<script src="js/script-mini.js"></script>
 
 </body>
 </html>
