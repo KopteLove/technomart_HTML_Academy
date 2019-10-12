@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт</title>
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-mini.css">
 </head>
 <body>
 
@@ -17,8 +17,8 @@
 
       <div class="search">
         <form class="search-form" action="https://echo.htmlacademy.ru" method="post">
-          <label class="visually-hidden" aria-label="Поле поиска"></label>
-          <input type="text" name="search" placeholder="Поиск:">
+          <label for="search" class="visually-hidden" aria-label="Поле поиска"></label>
+          <input type="text" id="search" name="search" placeholder="Поиск:">
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
             <path fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1
               0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5
@@ -328,7 +328,7 @@
         <h2 class="about-header heading-secondary">Компания «Техномарт»</h2>
         <p class="about-us text">Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта
           и строительства не оставит равнодушными любителей сэкономить на гастарбайтерах.</p>
-        <p class="about-us text">Мы можем доставить ваш товар в самые отдаленные точки России!<br>
+        <p class="about-us about-us-2 text">Мы можем доставить ваш товар в самые отдаленные точки России!
           Техномарт работает со многими транспортными компаниями:</p>
         <ul class="about-traffic-list marker-none">
           <li class="about-traffic-item">Деловые линии</li>
@@ -340,7 +340,7 @@
 
       <section class="map">
         <h2 class="map-header heading-secondary">Контакты</h2>
-        <p class="map-text text">Вы можете забрать товар сами,<br>
+        <p class="map-text text">Вы можете забрать товар сами,
           заехав в наш офис:</p>
         <a class="map-link" href="map.html">
           <img class="map-img" src="img/map.png" width="300" height="158" alt="Карта">
