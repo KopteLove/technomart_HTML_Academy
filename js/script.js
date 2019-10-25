@@ -30,7 +30,7 @@ if (link) {
   link.addEventListener("click", function (evt) {
     evt.preventDefault();
     console.log("Клик по ссылке напишите нам");
-    popupForm.classList.add("modal-show");
+    popupForm.classList.add("js-modal-show");
     if (storageLogin) {
       login.value = storageLogin;
       email.focus();
@@ -44,17 +44,17 @@ if (link) {
   closeForm.addEventListener("click", function (evt) {
     evt.preventDefault();
     console.log("Клик по крестику закрыть");
-    popupForm.classList.remove("modal-show");
-    popupForm.classList.remove("modal-error");
+    popupForm.classList.remove("js-modal-show");
+    popupForm.classList.remove("js-modal-error");
   });
 
   form.addEventListener("submit", function (evt) {
     if (!login.value || !email.value || !comment.value) {
       evt.preventDefault();
       console.log("Нужно заполнить форму!!!");
-      popupForm.classList.remove("modal-error");
+      popupForm.classList.remove("js-modal-error");
       popupForm.offsetWidth = popupForm.offsetWidth;
-      popupForm.classList.add("modal-error");
+      popupForm.classList.add("js-modal-error");
     } else {
       if (isSupportStorageLogin) {
         localStorage.setItem("login", login.value);
@@ -67,10 +67,10 @@ if (link) {
 
   window.addEventListener("keydown", function (evt) {
     if (evt.keyCode === 27) {
-      if (popupForm.classList.contains("modal-show")) {
+      if (popupForm.classList.contains("js-modal-show")) {
         evt.preventDefault();
-        popupForm.classList.remove("modal-show");
-        popupForm.classList.remove("modal-error");
+        popupForm.classList.remove("js-modal-show");
+        popupForm.classList.remove("js-modal-error");
       }
     }
   });
@@ -85,20 +85,20 @@ if (map) {
   mapImg.addEventListener("click", function (evt) {
     evt.preventDefault();
     console.log("Клик по мини-карте");
-    map.classList.add("modal-show");
+    map.classList.add("js-modal-show");
   });
 
   closeMap.addEventListener("click", function (evt) {
     evt.preventDefault();
     console.log("Клик по крестику закрыть");
-    map.classList.remove("modal-show");
+    map.classList.remove("js-modal-show");
   });
 
   window.addEventListener("keydown", function (evt) {
     if (evt.keyCode === 27) {
-      if (map.classList.contains("modal-show")) {
+      if (map.classList.contains("js-modal-show")) {
         evt.preventDefault();
-        map.classList.remove("modal-show");
+        map.classList.remove("js-modal-show");
       }
     }
   });
@@ -112,7 +112,7 @@ if (cart) {
   var closeCart = cart.querySelector(".close-cart");
   var continueBuy = cart.querySelector(".modal-cart-button-continue");
   var order = cart.querySelector(".modal-cart-button-buy");
-  var basketQuantity = document.querySelector(".basket-quantity");
+  var basketQuantity = document.querySelector(".js-basket-quantity");
   var basketCount = 0;
 
   basketQuantity.textContent = basketCount.toString();
@@ -121,7 +121,7 @@ if (cart) {
     buy[i].addEventListener("click", function (evt) {
       evt.preventDefault();
       console.log("Клик по кнопки купить");
-      cart.classList.add("modal-show");
+      cart.classList.add("js-modal-show");
       basket.classList.add("color-red");
       basketCount++;
       basketQuantity.textContent = basketCount.toString();
@@ -131,26 +131,26 @@ if (cart) {
   closeCart.addEventListener("click", function (evt) {
     evt.preventDefault();
     console.log("Клик по крестику закрыть");
-    cart.classList.remove("modal-show");
+    cart.classList.remove("js-modal-show");
   });
 
   order.addEventListener("click", function (evt) {
     evt.preventDefault();
     console.log("Клик по кнопке оформить заказ");
-    cart.classList.remove("modal-show");
+    cart.classList.remove("js-modal-show");
   });
 
   continueBuy.addEventListener("click", function (evt) {
     evt.preventDefault();
     console.log("Клик по кнопке продолжить покупки");
-    cart.classList.remove("modal-show");
+    cart.classList.remove("js-modal-show");
   });
 
   window.addEventListener("keydown", function (evt) {
     if (evt.keyCode === 27) {
-      if (cart.classList.contains("modal-show")) {
+      if (cart.classList.contains("js-modal-show")) {
         evt.preventDefault();
-        cart.classList.remove("modal-show");
+        cart.classList.remove("js-modal-show");
       }
     }
   });
@@ -158,7 +158,7 @@ if (cart) {
 
 var btnBookmark = document.querySelectorAll(".button-bookmark");
 var bookmark = document.querySelector(".bookmark");
-var bookmarkQuantity = document.querySelector(".bookmark-quantity");
+var bookmarkQuantity = document.querySelector(".js-bookmark-quantity");
 var bookmarkCount = 0;
 
 bookmarkQuantity.textContent = bookmarkCount.toString();

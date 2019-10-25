@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт</title>
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style-mini.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -13,24 +13,21 @@
   <div class="header-top">
     <div class="container">
 
-      <div class="logo-header"><a href="index.html"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a>
-      </div>
+      <a href="index.html" class="logo-header"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a>
 
-      <div class="search">
         <form class="search-form" action="https://echo.htmlacademy.ru" method="post">
-          <label class="visually-hidden" aria-label="Поле поиска"></label>
-          <input type="text" name="search" placeholder="Поиск:">
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-            <path fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1
+          <label for="search" class="visually-hidden" aria-label="Поле поиска"></label>
+          <input type="text" name="search" id="search" placeholder="Поиск:">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="#ffffff">
+            <path d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1
               0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5
               2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/>
           </svg>
         </form>
-      </div>
 
       <div class="user-navigation">
-        <a class="bookmark" href="#">Закладки: <span class="bookmark-quantity">0</span></a>
-        <a class="basket" href="#">Корзина: <span class="basket-quantity">0</span></a>
+        <a class="button-blue bookmark" href="#">Закладки: <span class="js-bookmark-quantity">0</span></a>
+        <a class="button-blue basket" href="#">Корзина: <span class="js-basket-quantity">0</span></a>
         <a class="order color-green" href="#">Оформить заказ</a>
       </div>
     </div>
@@ -54,19 +51,16 @@
 
       <div class="user-account">
         <a class="btn-user" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18">
-            <path fill="#c5c5c5"
-                  d="M17.881 14.166c-2.144-.735-4.256-1.666-5.207-2.39-.657-.501-.77-1.618-.517-2.415 1.118-.903 1.864-2.477 1.864-4.278C14.021 2.276 12.221 0 10 0S5.979 2.276 5.979 5.083c0 1.801.746 3.374 1.863 4.277.253.798.141 1.915-.517 2.416-.95.724-3.063 1.654-5.207 2.39S0 18 0 18h20s.025-3.099-2.119-3.834z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="#c5c5c5">
+            <path d="M17.881 14.166c-2.144-.735-4.256-1.666-5.207-2.39-.657-.501-.77-1.618-.517-2.415 1.118-.903 1.864-2.477 1.864-4.278C14.021 2.276 12.221 0 10 0S5.979 2.276 5.979 5.083c0 1.801.746 3.374 1.863 4.277.253.798.141 1.915-.517 2.416-.95.724-3.063 1.654-5.207 2.39S0 18 0 18h20s.025-3.099-2.119-3.834z"/>
           </svg>
           <span>Равшан Джамшутович</span>
         </a>
-
         <a class="exit" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17">
-            <g fill="#c5c5c5">
-              <path fill="#c5c5c5" d="M21 8.5L12.125 0v6h-6v5h6v6z"/>
-              <path fill="#c5c5c5"
-                    d="M3.106 13.952V3.048c.018-.376.171-1.057 1.01-1.057h5.027V0H4.116C1.938 0 1.112 1.81 1.087 3.027v10.946C1.112 15.189 1.938 17 4.116 17h5.027v-1.99H4.116c-.839 0-.992-.683-1.01-1.058z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="#c5c5c5">
+            <g>
+              <path d="M21 8.5L12.125 0v6h-6v5h6v6z"/>
+              <path d="M3.106 13.952V3.048c.018-.376.171-1.057 1.01-1.057h5.027V0H4.116C1.938 0 1.112 1.81 1.087 3.027v10.946C1.112 15.189 1.938 17 4.116 17h5.027v-1.99H4.116c-.839 0-.992-.683-1.01-1.058z"/>
             </g>
           </svg>
         </a>
@@ -494,8 +488,7 @@
   <div class="container">
 
     <div class="logo-address">
-      <div class="logo-footer"><a href="index.html"><img src="img/logo.svg" width="136" height="22" alt="Техномарт"></a>
-      </div>
+      <a href="index.html" class="logo-footer"><img src="img/logo.svg" width="136" height="22" alt="Техномарт"></a>
 
       <address class="contacts-footer">
         <p class="address-footer">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
@@ -549,7 +542,7 @@
   </div>
 </footer>
 
-<div class="modal modal-cart">
+<div class="js-modal modal-cart">
   <p class="heading-cart">Товар добавлен в корзину</p>
   <button class="close close-cart" type="button" aria-label="Закрыть"></button>
   <div class="modal-cart-button">
@@ -558,8 +551,7 @@
   </div>
 </div>
 
-<script src="js/script-mini.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
-

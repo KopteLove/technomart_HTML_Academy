@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт</title>
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style-mini.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -13,23 +13,21 @@
   <div class="header-top">
     <div class="container">
 
-      <div class="logo-header"><a><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></a></div>
+      <span class="logo-header"><img src="img/logo.svg" width="109" height="19" alt="Техномарт"></span>
 
-      <div class="search">
-        <form class="search-form" action="https://echo.htmlacademy.ru" method="post">
-          <label for="search" class="visually-hidden" aria-label="Поле поиска"></label>
-          <input type="text" id="search" name="search" placeholder="Поиск:">
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-            <path fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1
+      <form class="search-form" action="https://echo.htmlacademy.ru" method="post">
+        <label for="search" class="visually-hidden" aria-label="Поле поиска"></label>
+        <input type="text" id="search" name="search" placeholder="Поиск:">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="#ffffff">
+          <path d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1
               0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5
               2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/>
-          </svg>
-        </form>
-      </div>
+        </svg>
+      </form>
 
       <div class="user-navigation">
-        <a class="bookmark" href="#">Закладки: <span class="bookmark-quantity">0</span></a>
-        <a class="basket" href="#">Корзина: <span class="basket-quantity">0</span></a>
+        <a class="button-blue bookmark" href="#">Закладки: <span class="js-bookmark-quantity">0</span></a>
+        <a class="button-blue basket" href="#">Корзина: <span class="js-basket-quantity">0</span></a>
         <a class="order color-green" href="#">Оформить заказ</a>
       </div>
     </div>
@@ -53,9 +51,9 @@
 
       <div class="user">
         <a class="btn-user button-input" href="#">Войти</a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
-          <path fill="#c5c5c5" d="M14.875 8.5L6 0v6H0v5h6v6z"/>
-          <path fill="#c5c5c5" d="M16.986 15.01h-5.027V17h5
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="#c5c5c5">
+          <path d="M14.875 8.5L6 0v6H0v5h6v6z"/>
+          <path d="M16.986 15.01h-5.027V17h5
           .027c2.178 0 3.004-1.81 3.029-3.026V3.028C19.99 1.811 19.164 0 16.986 0h-5.027v1.99h5.027c.839 0 .992.681
            1.01 1.057v10.904c-.017.376-.171 1.059-1.01 1.059z"/>
         </svg>
@@ -355,7 +353,7 @@
   <div class="container">
 
     <div class="logo-address">
-      <div class="logo-footer"><a><img src="img/logo.svg" width="136" height="22" alt="Техномарт"></a></div>
+      <span class="logo-footer"><img src="img/logo.svg" width="136" height="22" alt="Техномарт"></span>
 
       <address class="contacts-footer">
         <p class="address-footer">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
@@ -409,7 +407,7 @@
   </div>
 </footer>
 
-<div class="modal modal-write-us">
+<div class="js-modal modal-write-us">
   <form class="modal-write-us-form" action="https://echo.htmlacademy.ru" method="post">
     <div class="form-center">
       <div class="write-us-1">
@@ -432,11 +430,11 @@
   <button class="close close-form" type="button" aria-label="Закрыть"></button>
 </div>
 
-<div class="modal map-popup">
+<div class="js-modal map-popup">
 
   <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5991043651625!2d30.320894615692737!3d59.93879418187619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywgMTkxMTg2!5e0!3m2!1sru!2sru!4v1570796538025!5m2!1sru!2sru"
-    width="940" height="446"></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5991043651625!2d30.320894615692737!3d59.93879418187619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywgMTkxMTg2!5e0!3m2!1sru!2sru!4v1570796538025!5m2!1sru!2sru"
+          width="940" height="446"></iframe>
 
   <img class="map-popup-img" src="img/map-popup.png" width="940" height="446"
        alt="Мы находимся по адресу: г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 ">
@@ -444,7 +442,7 @@
   <button class="close close-map" type="button" aria-label="Закрыть"></button>
 </div>
 
-<div class="modal modal-cart">
+<div class="js-modal modal-cart">
   <p class="heading-cart">Товар добавлен в корзину</p>
   <button class="close close-cart" type="button" aria-label="Закрыть"></button>
   <div class="modal-cart-button">
@@ -453,9 +451,7 @@
   </div>
 </div>
 
-<script src="js/script-mini.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
-
-/* Проверка связи*/
