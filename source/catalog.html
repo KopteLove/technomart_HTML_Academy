@@ -241,9 +241,9 @@
                         <h2 class="header-filters">Сортировка:</h2>
                         <div class="sorting-link">
                             <div class="sorting-items">
-                                <a href="#">По цене</a>
-                                <a href="#">По типу</a>
-                                <a href="#">По функционалу</a>
+                                <a class="sorting-price" href="#">По цене</a>
+                                <a class="sorting-type" href="#">По типу</a>
+                                <a class="sorting-function" href="#">По функционалу</a>
                             </div>
                             <div class="sorting-up-down">
                                 <a href="#" aria-label="По возрастанию">
@@ -534,7 +534,18 @@
         </div>
     </div>
     
-    <script src="js/script-mini.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
 
 </body>
 </html>
+
+<script>
+    $('.sorting-price').click(function () {
+        let arr = [];
+        $('.price').each(function (i, el) {
+            arr.push(parseInt($(el).text()));
+        });
+        console.log(arr);
+    });
+</script>
