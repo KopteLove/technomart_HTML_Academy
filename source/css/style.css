@@ -2063,15 +2063,6 @@ a.btn {
     margin-left: auto;
 }
 
-.sorting-link {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: relative;
-    width: 460px;
-    margin-left: auto;
-}
-
 .sorting-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2084,14 +2075,14 @@ a.btn {
     margin-bottom: 20px;
 }
 
-.sorting-link {
-    padding-top: 1px;
-}
-
 .sorting-items {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    width: 100%;
+    padding-right: 20px;
 }
 
 .sorting-up-down {
@@ -2110,20 +2101,10 @@ a.btn {
     border-bottom: 1px dotted #ee3643;
 }
 
-.sorting-items a:nth-child(1) {
-    margin-right: 70px;
-}
-
-.sorting-items a:nth-of-type(2) {
-    margin-right: 66px;
-}
-
-.sorting-items a:nth-child(3) {
-    margin-right: 40px;
-}
-
-.sorting-up-down a:nth-child(1) {
-    margin-right: 21px;
+.sorting-up,
+.sorting-down,
+.sorting-button {
+    cursor: pointer;
 }
 
 .sorting-items a:hover {
