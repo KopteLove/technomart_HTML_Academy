@@ -26,6 +26,8 @@ try {
     isSupportStorageEmail = false;
 }
 
+// Напишите нам
+
 if (link) {
     link.addEventListener("click", function (evt) {
         evt.preventDefault();
@@ -76,6 +78,8 @@ if (link) {
     });
 }
 
+// Карта
+
 var mapImg = document.querySelector(".map-img");
 var map = document.querySelector(".map-popup");
 
@@ -103,6 +107,8 @@ if (map) {
         }
     });
 }
+
+// Покупка товара
 
 var cart = document.querySelector(".modal-cart");
 var buy = document.querySelectorAll(".button-buy");
@@ -156,6 +162,8 @@ if (cart) {
     });
 }
 
+// Добавление в закладки
+
 var btnBookmark = document.querySelectorAll(".button-bookmark");
 var bookmark = document.querySelector(".bookmark");
 var bookmarkQuantity = document.querySelector(".js-bookmark-quantity");
@@ -172,3 +180,106 @@ for (var b = 0; b < btnBookmark.length; b++) {
         bookmarkQuantity.textContent = bookmarkCount.toString();
     });
 }
+
+// Сортировка карточек товаров
+
+var list = document.querySelector('.product-list');
+var items = list.childNodes;
+var itemsArr = [];
+var upPrice = document.querySelector('.sorting-price-up');
+var downPrice = document.querySelector('.sorting-price-down');
+var abcSort = document.querySelector('.sorting-abc');
+var abcSortRevers = document.querySelector('.sorting-abc-revers');
+
+function getArr(el) {
+    el.classList.add('active');
+    for (var i = 0; i < items.length; ++i) {
+        itemsArr.push(items[i]);
+    }
+}
+
+function sortPrice() {
+    itemsArr.sort(function (a, b) {
+        if (parseFloat(a.getAttribute('price')) === parseFloat(b.getAttribute('price'))) {
+            return 0;
+        } else if (parseFloat(a.getAttribute('price')) > parseFloat(b.getAttribute('price'))) {
+            if (upPrice.classList.contains('active')) {
+                return 1;
+            } else if (downPrice.classList.contains('active')) {
+                return -1;
+            }
+        } else if (parseFloat(a.getAttribute('price')) < parseFloat(b.getAttribute('price'))) {
+            if (upPrice.classList.contains('active')) {
+                return -1;
+            } else if (downPrice.classList.contains('active')) {
+                return 1;
+            }
+        }
+    });
+}
+
+function sortAbc() {
+    itemsArr.sort(function (a, b) {
+        if (a.childNodes[1].childNodes[0].childNodes[0].textContent === b.childNodes[1].childNodes[0].childNodes[0].textContent) {
+            return 0;
+        } else if (a.childNodes[1].childNodes[0].childNodes[0].textContent > b.childNodes[1].childNodes[0].childNodes[0].textContent) {
+            if (abcSort.classList.contains('active')) {
+                return 1;
+            } else if (abcSortRevers.classList.contains('active')) {
+                return -1;
+            }
+        } else if (a.childNodes[1].childNodes[0].childNodes[0].textContent < b.childNodes[1].childNodes[0].childNodes[0].textContent) {
+            if (abcSort.classList.contains('active')) {
+                return -1;
+            } else if (abcSortRevers.classList.contains('active')) {
+                return 1;
+            }
+        }
+    })
+}
+
+function embedsNewList() {
+    for (var i = 0; i < itemsArr.length; ++i) {
+        list.appendChild(itemsArr[i]);
+    }
+}
+
+upPrice.addEventListener('click', function () {
+    downPrice.classList.remove('active');
+    abcSort.classList.remove('active');
+    abcSortRevers.classList.remove('active');
+    itemsArr = [];
+    getArr(upPrice);
+    sortPrice();
+    embedsNewList();
+});
+
+downPrice.addEventListener('click', function () {
+    upPrice.classList.remove('active');
+    abcSort.classList.remove('active');
+    abcSortRevers.classList.remove('active');
+    itemsArr = [];
+    getArr(downPrice);
+    sortPrice();
+    embedsNewList();
+});
+
+abcSort.addEventListener('click', function () {
+    downPrice.classList.remove('active');
+    upPrice.classList.remove('active');
+    abcSortRevers.classList.remove('active');
+    itemsArr = [];
+    getArr(abcSort);
+    sortAbc();
+    embedsNewList();
+});
+
+abcSortRevers.addEventListener('click', function () {
+    upPrice.classList.remove('active');
+    abcSort.classList.remove('active');
+    downPrice.classList.remove('active');
+    itemsArr = [];
+    getArr(abcSortRevers);
+    sortAbc();
+    embedsNewList();
+});

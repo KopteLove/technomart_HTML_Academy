@@ -240,10 +240,10 @@
                     <div class="sorting-container">
                         <h2 class="header-filters">Сортировка:</h2>
                             <div class="sorting-items">
-                                <a class="sorting-price-up sorting-button">По возрастанию</a>
-                                <a class="sorting-price-down sorting-button">По убыванию</a>
-                                <a class="sorting-type sorting-button">A-Z</a>
-                                <a class="sorting-function sorting-button">Z-A</a>
+                                <button class="sorting-price-up sorting-button" type="button">По возрастанию</button>
+                                <button class="sorting-price-down sorting-button" type="button">По убыванию</button>
+                                <button class="sorting-abc sorting-button" type="button">A-Z</button>
+                                <button class="sorting-abc-revers sorting-button" type="button">Z-A</button>
                             </div>
                     </div>
                     
@@ -528,48 +528,5 @@
 </html>
 
 <script>
-    let upPrice = document.querySelector('.sorting-price-up');
-    let downPrice = document.querySelector('.sorting-price-down');
-    
-    function sortPrice(el) {
-        el.classList.add('active');
-        let list = document.querySelector('.product-list');
-        let items = list.childNodes;
-        let itemsArr = [];
-        for (let i = 0; i < items.length; ++i) {
-            itemsArr.push(items[i]);
-        }
-        
-        itemsArr.sort(function (a, b) {
-            if (parseFloat(a.getAttribute('price')) === parseFloat(b.getAttribute('price'))) {
-                return 0;
-            } else if (parseFloat(a.getAttribute('price')) > parseFloat(b.getAttribute('price'))) {
-                if (upPrice.classList.contains('active')) {
-                    return 1
-                } else if (downPrice.classList.contains('active')) {
-                    return -1;
-                }
-            } else if (parseFloat(a.getAttribute('price')) < parseFloat(b.getAttribute('price'))) {
-                if (upPrice.classList.contains('active')) {
-                    return -1
-                } else if (downPrice.classList.contains('active')) {
-                    return 1;
-                }
-            }
-        });
-        
-        for (let i = 0; i < itemsArr.length; ++i) {
-            list.appendChild(itemsArr[i]);
-        }
-    }
-    
-    upPrice.addEventListener('click', function () {
-        downPrice.classList.remove('active');
-        sortPrice(upPrice);
-    })
-    
-    downPrice.addEventListener('click', function () {
-        upPrice.classList.remove('active');
-        sortPrice(downPrice);
-    });
+
 </script>

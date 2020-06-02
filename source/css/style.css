@@ -2085,20 +2085,16 @@ a.btn {
     padding-right: 20px;
 }
 
-.sorting-up-down {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 60px;
-    margin-left: auto;
-}
-
-.sorting-items a {
+.sorting-button {
     height: 15px;
     line-height: 18px;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.3);
+    border: none;
     border-bottom: 1px dotted #ee3643;
+    background-color: transparent;
+    padding: 0;
+    outline: none;
 }
 
 .sorting-up,
@@ -2107,7 +2103,7 @@ a.btn {
     cursor: pointer;
 }
 
-.sorting-items a:hover {
+.sorting-button:hover {
     color: #000000;
     border-bottom: 1px solid #ee3643;
 }
@@ -2117,16 +2113,9 @@ a.btn {
     border: none;
 }
 
-.sorting-up-down path {
-    fill: #c5c5c5;
-}
-
-.sorting-up-down a:hover path {
-    fill: #231f20;
-}
-
-.sorting-up-down a:focus path {
-    fill: #ee3643;
+.sorting-button.active {
+    color: #ee3643;
+    border: none;
 }
 
 .product-cards .product-list {
