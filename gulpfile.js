@@ -27,8 +27,6 @@ gulp.task("css", function () {
 
 gulp.task("js", function () {
     return gulp.src("source/js/script.js")
-        .pipe(uglify())
-        .pipe(rename("script.min.js"))
         .pipe(gulp.dest("build/js"))
 });
 
@@ -59,8 +57,7 @@ gulp.task("copy", function () {
         "source/fonts/**/*.*",
         "source/img/**",
         "source/js/*.min.js",
-        "source/css/normalize.min.css",
-        "source/*.ico",
+        "source/css/*.min.css",
     ], {
         base: "source"
     })

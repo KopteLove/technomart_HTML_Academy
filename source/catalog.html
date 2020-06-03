@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>HTML Academy: Техномарт</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
@@ -103,22 +105,25 @@
                     <div class="header-filters-container">
                         <h2 class="header-filters">Фильтр:</h2>
                     </div>
+    
                     <form class="filters-form" action="https://echo.htmlacademy.ru" method="post">
                         <fieldset class="filters-range-group">
                             <legend class="filter-header">Цена:</legend>
+    
                             <div class="range">
-                                <button class="btn-range btn-range-min" type="button" aria-label="Минимальная цена"></button>
-                                <button class="btn-range btn-range-max" type="button" aria-label="Максимальная цена"></button>
-                                <div class="slider-green"></div>
-                                <div class="slider-gray"></div>
+                                <div class="range__text-inputs">
+                                    <div class="range__wrapper">
+                                        <label class="range__label" for="price-min">From</label>
+                                        <input class="js-price-min range__input" name="price-min" id="price-min" type="number"/>
+                                    </div>
+                                    <div class="range__wrapper">
+                                        <label class="range__label" for="price-max">To</label>
+                                        <input class="js-price-max range__input" name="price-max" id="price-max" type="number"/>
+                                    </div>
+                                </div>
+                                <div class="js-price-range range__slider"></div>
                             </div>
-                            <div class="price-range">
-                                <label for="range-min"></label>
-                                <input class="range-min" type="text" name="range-min" id="range-min" value="0">
-                                <div></div>
-                                <label for="range-max"></label>
-                                <input class="range-max" type="text" name="range-max" id="range-max" value="30000">
-                            </div>
+
                         </fieldset>
                         
                         <fieldset class="filters-checkbox-group">
@@ -521,8 +526,9 @@
         </div>
     </div>
     
-    <script src="js/script.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

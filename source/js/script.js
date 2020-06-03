@@ -283,3 +283,89 @@ abcSortRevers.addEventListener('click', function () {
     sortAbc();
     embedsNewList();
 });
+
+// Range jquery slider
+
+var INITIAL_RANGE_VALUES = [5000, 95000];
+var MIN_RANGE = 0;
+var MAX_RANGE = 100000;
+
+$('.js-price-range').slider({
+    range: true,
+    min: MIN_RANGE,
+    max: MAX_RANGE,
+    values: INITIAL_RANGE_VALUES,
+    slide: function (event, ui) {
+        $('.js-price-min').val(ui.values[0]);
+        $('.js-price-max').val(ui.values[1]);
+        setHandleValues(ui.values);
+    }
+});
+
+function getRangeValues(numberValue) {
+    return $('.js-price-range').slider('values', numberValue);
+}
+
+function setValueToInputs() {
+    $('.js-price-min').attr('value', getRangeValues(0));
+    $('.js-price-max').attr('value', getRangeValues(1));
+}
+
+function setHandleValues(values) {
+    $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(values[0] + '₽');
+    $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(values[1] + '₽');
+}
+
+setValueToInputs();
+
+$('.js-price-min').change(function () {
+    var minValue = $('.js-price-min').val();
+    var maxValue = $('.js-price-max').val();
+    if (Number(minValue) <= Number(maxValue)) {
+        if (Number(minValue) < MIN_RANGE) {
+            minValue = MIN_RANGE;
+            $('.js-price-min').val(minValue);
+        }
+        $('.js-price-range').slider('values', 0, minValue);
+        $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(minValue + '₽');
+    } else {
+        $('.js-price-range').slider('values', 0, maxValue);
+        $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(maxValue + '₽');
+        $('.js-price-min').val(maxValue);
+    }
+});
+
+$('.js-price-max').change(function () {
+    var minValue = $('.js-price-min').val();
+    var maxValue = $('.js-price-max').val();
+    if (Number(maxValue) >= Number(minValue)) {
+        if (Number(maxValue) > MAX_RANGE) {
+            maxValue = MAX_RANGE;
+            $('.js-price-max').val(maxValue);
+        }
+        $('.js-price-range').slider('values', 1, maxValue);
+        $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(maxValue + '₽');
+    } else {
+        $('.js-price-range').slider('values', 1, minValue);
+        $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(minValue + '₽');
+        $('.js-price-max').val(minValue);
+    }
+});
+
+setTimeout(function () {
+    var handleValue = $('<span class="ui-slider-handle-value"></span>');
+    var handleValueMin = handleValue.text($('.js-price-range').slider('values', 0) + '₽');
+    $('.js-price-range .ui-slider-handle:nth-child(2)').append(handleValueMin);
+});
+
+setTimeout(function () {
+    var handleValue = $('<span class="ui-slider-handle-value"></span>');
+    var handleValueMax = handleValue.text($('.js-price-range').slider('values', 1) + '₽');
+    $('.js-price-range .ui-slider-handle:nth-child(3)').append(handleValueMax);
+});
+
+$('.js-clear-all').on('click', function () {
+    $('.js-price-range').slider('values', INITIAL_RANGE_VALUES);
+    setValueToInputs();
+    setHandleValues(INITIAL_RANGE_VALUES);
+});
