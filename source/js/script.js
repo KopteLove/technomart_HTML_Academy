@@ -1,199 +1,186 @@
-var link = document.querySelector(".button-write-us");
-var popupForm = document.querySelector(".modal-write-us");
-var closeForm = document.querySelector(".close-form");
-if (popupForm) {
-    var form = popupForm.querySelector(".modal-write-us-form");
-    var login = popupForm.querySelector("[name=name]");
-    var email = popupForm.querySelector("[name=email]");
-    var comment = popupForm.querySelector("[name=user-comment]");
-}
-var storageLogin = "";
-var storageEmail = "";
+const link = $('.button-write-us');
+const popupForm = $('.modal-write-us');
+const closeForm = $('.close-form');
+let form = $('.modal-write-us-form');
+let login = $('[name=name]');
+let email = $('[name=email]');
+let comment = $('[name=user-comment]');
 
-var isSupportStorageLogin = true;
+let storageLogin = '';
+let storageEmail = '';
+
+let isSupportStorageLogin = true;
 
 try {
-    storageLogin = localStorage.getItem("login");
+    storageLogin = localStorage.getItem('login');
 } catch (err) {
     isSupportStorageLogin = false;
 }
 
-var isSupportStorageEmail = true;
+let isSupportStorageEmail = true;
 
 try {
-    storageEmail = localStorage.getItem("email");
+    storageEmail = localStorage.getItem('email');
 } catch (err) {
     isSupportStorageEmail = false;
 }
 
-// Напишите нам
+///////////////////////////////////////////////////////////////////////////////// Напишите нам
 
-if (link) {
-    link.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        console.log("Клик по ссылке напишите нам");
-        popupForm.classList.add("js-modal-show");
-        if (storageLogin) {
-            login.value = storageLogin;
-            email.focus();
-            email.value = storageEmail;
-            comment.focus()
-        } else {
-            login.focus()
-        }
-    });
-
-    closeForm.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        console.log("Клик по крестику закрыть");
-        popupForm.classList.remove("js-modal-show");
-        popupForm.classList.remove("js-modal-error");
-    });
-
-    form.addEventListener("submit", function (evt) {
-        if (!login.value || !email.value || !comment.value) {
-            evt.preventDefault();
-            console.log("Нужно заполнить форму!!!");
-            popupForm.classList.remove("js-modal-error");
-            popupForm.offsetWidth = popupForm.offsetWidth;
-            popupForm.classList.add("js-modal-error");
-        } else {
-            if (isSupportStorageLogin) {
-                localStorage.setItem("login", login.value);
-            }
-            if (isSupportStorageEmail) {
-                localStorage.setItem("email", email.value);
-            }
-        }
-    });
-
-    window.addEventListener("keydown", function (evt) {
-        if (evt.keyCode === 27) {
-            if (popupForm.classList.contains("js-modal-show")) {
-                evt.preventDefault();
-                popupForm.classList.remove("js-modal-show");
-                popupForm.classList.remove("js-modal-error");
-            }
-        }
-    });
-}
-
-// Карта
-
-var mapImg = document.querySelector(".map-img");
-var map = document.querySelector(".map-popup");
-
-if (map) {
-    var closeMap = map.querySelector(".close-map");
-
-    mapImg.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        console.log("Клик по мини-карте");
-        map.classList.add("js-modal-show");
-    });
-
-    closeMap.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        console.log("Клик по крестику закрыть");
-        map.classList.remove("js-modal-show");
-    });
-
-    window.addEventListener("keydown", function (evt) {
-        if (evt.keyCode === 27) {
-            if (map.classList.contains("js-modal-show")) {
-                evt.preventDefault();
-                map.classList.remove("js-modal-show");
-            }
-        }
-    });
-}
-
-// Покупка товара
-
-var cart = document.querySelector(".modal-cart");
-var buy = document.querySelectorAll(".button-buy");
-var basket = document.querySelector(".basket");
-
-if (cart) {
-    var closeCart = cart.querySelector(".close-cart");
-    var continueBuy = cart.querySelector(".modal-cart-button-continue");
-    var order = cart.querySelector(".modal-cart-button-buy");
-    var basketQuantity = document.querySelector(".js-basket-quantity");
-    var basketCount = 0;
-
-    basketQuantity.textContent = basketCount.toString();
-
-    for (var i = 0; i < buy.length; i++) {
-        buy[i].addEventListener("click", function (evt) {
-            evt.preventDefault();
-            console.log("Клик по кнопки купить");
-            cart.classList.add("js-modal-show");
-            basket.classList.add("color-red");
-            basketCount++;
-            basketQuantity.textContent = basketCount.toString();
-        });
+link.on('click', function (evt) {
+    evt.preventDefault();
+    console.log('Клик по ссылке напишите нам');
+    popupForm.addClass('js-modal-show');
+    if (storageLogin) {
+        login.value = storageLogin;
+        email.focus();
+        email.value = storageEmail;
+        comment.focus()
+    } else {
+        login.focus()
     }
+});
 
-    closeCart.addEventListener("click", function (evt) {
+closeForm.on('click', function (evt) {
+    evt.preventDefault();
+    console.log('Клик по крестику закрыть');
+    popupForm.removeClass('js-modal-show');
+    popupForm.removeClass('js-modal-error');
+});
+
+form.on('submit', function (evt) {
+    if (!login.value || !email.value || !comment.value) {
         evt.preventDefault();
-        console.log("Клик по крестику закрыть");
-        cart.classList.remove("js-modal-show");
-    });
-
-    order.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        console.log("Клик по кнопке оформить заказ");
-        cart.classList.remove("js-modal-show");
-    });
-
-    continueBuy.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        console.log("Клик по кнопке продолжить покупки");
-        cart.classList.remove("js-modal-show");
-    });
-
-    window.addEventListener("keydown", function (evt) {
-        if (evt.keyCode === 27) {
-            if (cart.classList.contains("js-modal-show")) {
-                evt.preventDefault();
-                cart.classList.remove("js-modal-show");
-            }
+        console.log('Нужно заполнить форму!!!');
+        popupForm.removeClass('js-modal-error');
+        popupForm.offsetWidth = popupForm.offsetWidth;
+        popupForm.addClass('js-modal-error');
+    } else {
+        if (isSupportStorageLogin) {
+            localStorage.setItem('login', login.value);
         }
-    });
-}
+        if (isSupportStorageEmail) {
+            localStorage.setItem('email', email.value);
+        }
+    }
+});
 
-// Добавление в закладки
+$(window).on('keydown', function (evt) {
+    if (evt.keyCode === 27) {
+        if (popupForm.hasClass('js-modal-show')) {
+            evt.preventDefault();
+            popupForm.removeClass('js-modal-show');
+            popupForm.removeClass('js-modal-error');
+        }
+    }
+});
 
-var btnBookmark = document.querySelectorAll(".button-bookmark");
-var bookmark = document.querySelector(".bookmark");
-var bookmarkQuantity = document.querySelector(".js-bookmark-quantity");
-var bookmarkCount = 0;
+///////////////////////////////////////////////////////////////////////////////// Карта
 
-bookmarkQuantity.textContent = bookmarkCount.toString();
+const mapImg = $('.map-img');
+const map = $('.map-popup');
+const closeMap = $('.close-map');
 
-for (var b = 0; b < btnBookmark.length; b++) {
-    btnBookmark[b].addEventListener("click", function (evt) {
-        evt.preventDefault();
-        console.log("Клик по кнопке в закладки");
-        bookmark.classList.add("color-red");
-        bookmarkCount++;
-        bookmarkQuantity.textContent = bookmarkCount.toString();
-    });
-}
+mapImg.on('click', function (evt) {
+    evt.preventDefault();
+    console.log('Клик по мини-карте');
+    map.addClass('js-modal-show');
+});
 
-// Сортировка карточек товаров
+closeMap.on('click', function (evt) {
+    evt.preventDefault();
+    console.log('Клик по крестику закрыть');
+    map.removeClass('js-modal-show');
+});
 
-var list = document.querySelector('.product-list');
-var items = list.childNodes;
-var itemsArr = [];
-var upPrice = document.querySelector('.sorting-price-up');
-var downPrice = document.querySelector('.sorting-price-down');
-var abcSort = document.querySelector('.sorting-abc');
-var abcSortRevers = document.querySelector('.sorting-abc-revers');
+$(window).on('keydown', function (evt) {
+    if (evt.keyCode === 27) {
+        if (map.hasClass('js-modal-show')) {
+            evt.preventDefault();
+            map.removeClass('js-modal-show');
+        }
+    }
+});
+
+///////////////////////////////////////////////////////////////////////////////// Покупка товара
+
+const cart = $('.modal-cart');
+const buy = $('.button-buy');
+const basket = $('.basket');
+const closeCart = $('.close-cart');
+const continueBuy = $('.modal-cart-button-continue');
+const order = $('.modal-cart-button-buy');
+const basketQuantity = $('.js-basket-quantity');
+let basketCount = 0;
+
+basketQuantity.text(basketCount + '');
+
+buy.click(function (evt) {
+    evt.preventDefault();
+    console.log('Клик по кнопки купить');
+    cart.addClass('js-modal-show');
+    basket.addClass('color-red');
+    basketCount++;
+    basketQuantity.text(basketCount + '');
+});
+
+closeCart.on('click', function (evt) {
+    evt.preventDefault();
+    console.log('Клик по крестику закрыть');
+    cart.removeClass('js-modal-show');
+});
+
+order.on('click', function (evt) {
+    evt.preventDefault();
+    console.log('Клик по кнопке оформить заказ');
+    cart.removeClass('js-modal-show');
+});
+
+continueBuy.on('click', function (evt) {
+    evt.preventDefault();
+    console.log('Клик по кнопке продолжить покупки');
+    cart.removeClass('js-modal-show');
+});
+
+$(window).on('keydown', function (evt) {
+    if (evt.keyCode === 27) {
+        if (cart.hasClass('js-modal-show')) {
+            evt.preventDefault();
+            cart.removeClass('js-modal-show');
+        }
+    }
+});
+
+///////////////////////////////////////////////////////////////////////////////// Добавление в закладки
+
+const btnBookmark = $('.button-bookmark');
+const bookmark = $('.bookmark');
+let bookmarkQuantity = $('.js-bookmark-quantity');
+let bookmarkCount = 0;
+
+bookmarkQuantity.text(bookmarkCount + '');
+
+btnBookmark.click(function (evt) {
+    evt.preventDefault();
+    console.log('Клик по кнопке в закладки');
+    bookmark.addClass('color-red');
+    bookmarkCount++;
+    bookmarkQuantity.text(bookmarkCount + '');
+});
+
+///////////////////////////////////////////////////////////////////////////////// Сортировка карточек товаров
+
+const list = $('.product-list');
+let items = list.children();
+let itemsArr = [];
+const upPrice = $('.sorting-price-up');
+const downPrice = $('.sorting-price-down');
+const abcSort = $('.sorting-abc');
+const abcSortRevers = $('.sorting-abc-revers');
 
 function getArr(el) {
     itemsArr = [];
-    el.classList.add('active');
+    el.addClass('active');
     for (var i = 0; i < items.length; ++i) {
         itemsArr.push(items[i]);
     }
@@ -204,15 +191,15 @@ function sortPrice() {
         if (parseFloat(a.getAttribute('data-price')) === parseFloat(b.getAttribute('data-price'))) {
             return 0;
         } else if (parseFloat(a.getAttribute('data-price')) > parseFloat(b.getAttribute('data-price'))) {
-            if (upPrice.classList.contains('active')) {
+            if (upPrice.hasClass('active')) {
                 return 1;
-            } else if (downPrice.classList.contains('active')) {
+            } else if (downPrice.hasClass('active')) {
                 return -1;
             }
         } else if (parseFloat(a.getAttribute('data-price')) < parseFloat(b.getAttribute('data-price'))) {
-            if (upPrice.classList.contains('active')) {
+            if (upPrice.hasClass('active')) {
                 return -1;
-            } else if (downPrice.classList.contains('active')) {
+            } else if (downPrice.hasClass('active')) {
                 return 1;
             }
         }
@@ -221,18 +208,18 @@ function sortPrice() {
 
 function sortAbc() {
     itemsArr.sort(function (a, b) {
-        if (a.childNodes[1].childNodes[0].childNodes[0].textContent === b.childNodes[1].childNodes[0].childNodes[0].textContent) {
+        if (a.children[1].children[0].children[0].textContent === b.children[1].children[0].children[0].textContent) {
             return 0;
-        } else if (a.childNodes[1].childNodes[0].childNodes[0].textContent > b.childNodes[1].childNodes[0].childNodes[0].textContent) {
-            if (abcSort.classList.contains('active')) {
+        } else if (a.children[1].children[0].children[0].textContent > b.children[1].children[0].children[0].textContent) {
+            if (abcSort.hasClass('active')) {
                 return 1;
-            } else if (abcSortRevers.classList.contains('active')) {
+            } else if (abcSortRevers.hasClass('active')) {
                 return -1;
             }
-        } else if (a.childNodes[1].childNodes[0].childNodes[0].textContent < b.childNodes[1].childNodes[0].childNodes[0].textContent) {
-            if (abcSort.classList.contains('active')) {
+        } else if (a.children[1].children[0].children[0].textContent < b.children[1].children[0].children[0].textContent) {
+            if (abcSort.hasClass('active')) {
                 return -1;
-            } else if (abcSortRevers.classList.contains('active')) {
+            } else if (abcSortRevers.hasClass('active')) {
                 return 1;
             }
         }
@@ -240,58 +227,58 @@ function sortAbc() {
 }
 
 function embedsNewList(arr) {
-    for (var i = 0; i < arr.length; ++i) {
-        list.appendChild(arr[i]);
+    for (let i = 0; i < arr.length; ++i) {
+        list.append(arr[i]);
     }
 }
 
-upPrice.addEventListener('click', function () {
-    downPrice.classList.remove('active');
-    abcSort.classList.remove('active');
-    abcSortRevers.classList.remove('active');
+upPrice.on('click', function () {
+    downPrice.removeClass('active');
+    abcSort.removeClass('active');
+    abcSortRevers.removeClass('active');
     itemsArr = [];
     getArr(upPrice);
     sortPrice();
     embedsNewList(itemsArr);
 });
 
-downPrice.addEventListener('click', function () {
-    upPrice.classList.remove('active');
-    abcSort.classList.remove('active');
-    abcSortRevers.classList.remove('active');
+downPrice.on('click', function () {
+    upPrice.removeClass('active');
+    abcSort.removeClass('active');
+    abcSortRevers.removeClass('active');
     itemsArr = [];
     getArr(downPrice);
     sortPrice();
     embedsNewList(itemsArr);
 });
 
-abcSort.addEventListener('click', function () {
-    downPrice.classList.remove('active');
-    upPrice.classList.remove('active');
-    abcSortRevers.classList.remove('active');
+abcSort.on('click', function () {
+    downPrice.removeClass('active');
+    upPrice.removeClass('active');
+    abcSortRevers.removeClass('active');
     itemsArr = [];
     getArr(abcSort);
     sortAbc();
     embedsNewList(itemsArr);
 });
 
-abcSortRevers.addEventListener('click', function () {
-    upPrice.classList.remove('active');
-    abcSort.classList.remove('active');
-    downPrice.classList.remove('active');
+abcSortRevers.on('click', function () {
+    upPrice.removeClass('active');
+    abcSort.removeClass('active');
+    downPrice.removeClass('active');
     itemsArr = [];
     getArr(abcSortRevers);
     sortAbc();
     embedsNewList(itemsArr);
 });
 
-// Range jquery slider
+///////////////////////////////////////////////////////////////////////////////// Range jquery slider
 
-var INITIAL_RANGE_VALUES = [3000, 95000];
-var MIN_RANGE = 0;
-var MAX_RANGE = 100000;
-var itemsArrRange = [];
-var headerPrice = document.querySelector('.js-filter-header');
+const INITIAL_RANGE_VALUES = [3000, 95000];
+const MIN_RANGE = 0;
+const MAX_RANGE = 100000;
+let itemsArrRange = [];
+const headerPrice = $('.js-filter-header');
 
 $('.js-price-range').slider({
     range: true,
@@ -314,7 +301,7 @@ function clearList() {
 function sortsProductsByRange() {
     getArr(headerPrice);
 
-    for (var i = 0; i < itemsArr.length; ++i) {
+    for (let i = 0; i < itemsArr.length; ++i) {
         if (itemsArr[i].getAttribute('data-price') >= $('.js-price-range').slider('values', 0) && itemsArr[i].getAttribute('data-price') <= $('.js-price-range').slider('values', 1)) {
             itemsArrRange.push(itemsArr[i]);
             itemsArr[i].style.display = 'flex';
@@ -344,19 +331,15 @@ function setHandleValues(values) {
 
 setValueToInputs();
 
-var minValue = $('.js-price-min').val();
-var maxValue = $('.js-price-max').val();
-
 $('.js-price-min').change(function () {
-    var minValue = $('.js-price-min').val();
-    var maxValue = $('.js-price-max').val();
+    let minValue = $('.js-price-min').val();
+    let maxValue = $('.js-price-max').val();
     if (Number(minValue) <= Number(maxValue)) {
         if (Number(minValue) < MIN_RANGE) {
             minValue = MIN_RANGE;
             $('.js-price-min').val(minValue);
         }
         $('.js-price-range').slider('values', 0, minValue);
-        console.log($('.js-price-range').slider('values'))
         $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(minValue + '₽');
         sortsProductsByRange();
     } else {
@@ -368,15 +351,14 @@ $('.js-price-min').change(function () {
 });
 
 $('.js-price-max').change(function () {
-    var minValue = $('.js-price-min').val();
-    var maxValue = $('.js-price-max').val();
+    let minValue = $('.js-price-min').val();
+    let maxValue = $('.js-price-max').val();
     if (Number(maxValue) >= Number(minValue)) {
         if (Number(maxValue) > MAX_RANGE) {
             maxValue = MAX_RANGE;
             $('.js-price-max').val(maxValue);
         }
         $('.js-price-range').slider('values', 1, maxValue);
-        console.log($('.js-price-range').slider('values'))
         $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(maxValue + '₽');
         sortsProductsByRange();
     } else {
@@ -388,14 +370,14 @@ $('.js-price-max').change(function () {
 });
 
 setTimeout(function () {
-    var handleValue = $('<span class="ui-slider-handle-value"></span>');
-    var handleValueMin = handleValue.text($('.js-price-range').slider('values', 0) + '₽');
+    let handleValue = $('<span class="ui-slider-handle-value"></span>');
+    let handleValueMin = handleValue.text($('.js-price-range').slider('values', 0) + '₽');
     $('.js-price-range .ui-slider-handle:nth-child(2)').append(handleValueMin);
 });
 
 setTimeout(function () {
-    var handleValue = $('<span class="ui-slider-handle-value"></span>');
-    var handleValueMax = handleValue.text($('.js-price-range').slider('values', 1) + '₽');
+    let handleValue = $('<span class="ui-slider-handle-value"></span>');
+    let handleValueMax = handleValue.text($('.js-price-range').slider('values', 1) + '₽');
     $('.js-price-range .ui-slider-handle:nth-child(3)').append(handleValueMax);
 });
 
