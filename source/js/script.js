@@ -192,6 +192,7 @@ var abcSort = document.querySelector('.sorting-abc');
 var abcSortRevers = document.querySelector('.sorting-abc-revers');
 
 function getArr(el) {
+    itemsArr = [];
     el.classList.add('active');
     for (var i = 0; i < items.length; ++i) {
         itemsArr.push(items[i]);
@@ -200,15 +201,15 @@ function getArr(el) {
 
 function sortPrice() {
     itemsArr.sort(function (a, b) {
-        if (parseFloat(a.getAttribute('price')) === parseFloat(b.getAttribute('price'))) {
+        if (parseFloat(a.getAttribute('data-price')) === parseFloat(b.getAttribute('data-price'))) {
             return 0;
-        } else if (parseFloat(a.getAttribute('price')) > parseFloat(b.getAttribute('price'))) {
+        } else if (parseFloat(a.getAttribute('data-price')) > parseFloat(b.getAttribute('data-price'))) {
             if (upPrice.classList.contains('active')) {
                 return 1;
             } else if (downPrice.classList.contains('active')) {
                 return -1;
             }
-        } else if (parseFloat(a.getAttribute('price')) < parseFloat(b.getAttribute('price'))) {
+        } else if (parseFloat(a.getAttribute('data-price')) < parseFloat(b.getAttribute('data-price'))) {
             if (upPrice.classList.contains('active')) {
                 return -1;
             } else if (downPrice.classList.contains('active')) {
@@ -238,9 +239,9 @@ function sortAbc() {
     })
 }
 
-function embedsNewList() {
-    for (var i = 0; i < itemsArr.length; ++i) {
-        list.appendChild(itemsArr[i]);
+function embedsNewList(arr) {
+    for (var i = 0; i < arr.length; ++i) {
+        list.appendChild(arr[i]);
     }
 }
 
@@ -251,7 +252,7 @@ upPrice.addEventListener('click', function () {
     itemsArr = [];
     getArr(upPrice);
     sortPrice();
-    embedsNewList();
+    embedsNewList(itemsArr);
 });
 
 downPrice.addEventListener('click', function () {
@@ -261,7 +262,7 @@ downPrice.addEventListener('click', function () {
     itemsArr = [];
     getArr(downPrice);
     sortPrice();
-    embedsNewList();
+    embedsNewList(itemsArr);
 });
 
 abcSort.addEventListener('click', function () {
@@ -271,7 +272,7 @@ abcSort.addEventListener('click', function () {
     itemsArr = [];
     getArr(abcSort);
     sortAbc();
-    embedsNewList();
+    embedsNewList(itemsArr);
 });
 
 abcSortRevers.addEventListener('click', function () {
@@ -281,14 +282,16 @@ abcSortRevers.addEventListener('click', function () {
     itemsArr = [];
     getArr(abcSortRevers);
     sortAbc();
-    embedsNewList();
+    embedsNewList(itemsArr);
 });
 
 // Range jquery slider
 
-var INITIAL_RANGE_VALUES = [5000, 95000];
+var INITIAL_RANGE_VALUES = [3000, 95000];
 var MIN_RANGE = 0;
 var MAX_RANGE = 100000;
+var itemsArrRange = [];
+var headerPrice = document.querySelector('.js-filter-header');
 
 $('.js-price-range').slider({
     range: true,
@@ -301,6 +304,29 @@ $('.js-price-range').slider({
         setHandleValues(ui.values);
     }
 });
+
+function clearList() {
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+}
+
+function sortsProductsByRange() {
+    getArr(headerPrice);
+
+    for (var i = 0; i < itemsArr.length; ++i) {
+        if (itemsArr[i].getAttribute('data-price') >= $('.js-price-range').slider('values', 0) && itemsArr[i].getAttribute('data-price') <= $('.js-price-range').slider('values', 1)) {
+            itemsArrRange.push(itemsArr[i]);
+            itemsArr[i].style.display = 'flex';
+        } else {
+            itemsArrRange.push(itemsArr[i]);
+            itemsArr[i].style.display = 'none';
+        }
+    }
+    clearList();
+    embedsNewList(itemsArrRange);
+    itemsArrRange = [];
+}
 
 function getRangeValues(numberValue) {
     return $('.js-price-range').slider('values', numberValue);
@@ -318,6 +344,9 @@ function setHandleValues(values) {
 
 setValueToInputs();
 
+var minValue = $('.js-price-min').val();
+var maxValue = $('.js-price-max').val();
+
 $('.js-price-min').change(function () {
     var minValue = $('.js-price-min').val();
     var maxValue = $('.js-price-max').val();
@@ -327,11 +356,14 @@ $('.js-price-min').change(function () {
             $('.js-price-min').val(minValue);
         }
         $('.js-price-range').slider('values', 0, minValue);
+        console.log($('.js-price-range').slider('values'))
         $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(minValue + '₽');
+        sortsProductsByRange();
     } else {
         $('.js-price-range').slider('values', 0, maxValue);
         $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(maxValue + '₽');
         $('.js-price-min').val(maxValue);
+        sortsProductsByRange();
     }
 });
 
@@ -344,11 +376,14 @@ $('.js-price-max').change(function () {
             $('.js-price-max').val(maxValue);
         }
         $('.js-price-range').slider('values', 1, maxValue);
+        console.log($('.js-price-range').slider('values'))
         $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(maxValue + '₽');
+        sortsProductsByRange();
     } else {
         $('.js-price-range').slider('values', 1, minValue);
         $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(minValue + '₽');
         $('.js-price-max').val(minValue);
+        sortsProductsByRange();
     }
 });
 

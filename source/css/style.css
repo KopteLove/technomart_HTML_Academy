@@ -1932,6 +1932,10 @@ a.btn {
     margin-left: 0;
 }
 
+.js-filter-header.active {
+    color: #ee3643;
+}
+
 .filters-radio-group label,
 .filters-checkbox-list label {
     font-size: 15px;
