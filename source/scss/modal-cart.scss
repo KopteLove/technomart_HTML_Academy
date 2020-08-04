@@ -1,0 +1,97 @@
+/*=====================================================================
+                                                             modal-cart
+=====================================================================*/
+
+.modal-cart-button-continue,
+.input-popup {
+    width: 220px;
+    height: 38px;
+}
+
+.page-item,
+.sorting-container a,
+.button-filters,
+.header-filters,
+.breadcrumb-item,
+.modal-write-us-form input,
+.modal-write-us-form textarea {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.modal-cart {
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    width: 620px;
+    margin-left: -310px;
+    background-color: #ffffff;
+    border-top: 7px solid #ff5357;
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.75);
+    z-index: 20;
+}
+
+.modal-cart-text {
+    position: relative;
+    min-height: 163px;
+}
+
+.heading-cart {
+    position: relative;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    margin-left: 79px;
+    padding-left: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-transform: none;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 2px;
+        width: 66px;
+        height: 66px;
+        background-image: url("../img/icon-added.svg");
+        background-repeat: no-repeat;
+    }
+}
+
+.modal-cart-button {
+    display: flex;
+    justify-content: center;
+    height: 112px;
+    background-color: #f1f1f1;
+}
+
+.modal-cart-button-continue {
+    font-family: Cuprum, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    border-radius: 3px;
+    color: #000000;
+    margin: auto 10px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.modal-cart-button-buy {
+    width: 220px;
+    height: 38px;
+    box-sizing: border-box;
+    font-family: Cuprum, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    padding: 11px 10px 9px;
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: #ee3643;
+    text-align: center;
+    margin: auto 10px;
+}

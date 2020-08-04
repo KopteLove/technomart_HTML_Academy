@@ -1,0 +1,85 @@
+/*=====================================================================
+                                                                  about
+=====================================================================*/
+
+
+.about-map {
+    display: flex;
+}
+
+.about-container {
+    width: 540px;
+    margin-right: 99px;
+}
+
+.about-us {
+    margin-top: 0;
+    margin-bottom: 25px;
+
+    &:last-of-type {
+        margin-bottom: 19px;
+    }
+}
+
+.map {
+    width: 301px;
+}
+
+.map-text {
+    margin-bottom: 31px;
+    width: 180px;
+}
+
+.map-link {
+    display: block;
+    background-color: #e2e1dc;
+}
+
+.map-img {
+    vertical-align: top;
+}
+
+.map-header,
+.about-header {
+    margin-top: 79px;
+    margin-left: 0;
+    margin-bottom: 26px;
+    font-weight: 100;
+}
+
+.about-us-2 {
+    width: 385px;
+}
+
+.about-traffic-list {
+    margin-bottom: 37px;
+}
+
+.about-traffic-item {
+    font-family: Cuprum, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 20px;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 25px;
+        height: 2px;
+        margin-right: 10px;
+        line-height: 20px;
+        vertical-align: middle;
+        background-color: #fb565a;
+    }
+}
+
+.button-about {
+    width: 220px;
+}
+
+.button-write-us {
+    width: 300px;
+    margin-left: 1px;
+    margin-top: 40px;
+}
+

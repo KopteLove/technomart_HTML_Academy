@@ -1,0 +1,115 @@
+/*=====================================================================
+                                                        product-sorting
+=====================================================================*/
+
+.product-sorting {
+    width: 700px;
+    margin-left: auto;
+}
+
+.sorting-container {
+    display: flex;
+    height: 38px;
+    align-items: center;
+    background-color: #f7f3ec;
+    margin-bottom: 20px;
+
+    a:focus {
+        color: #ee3643;
+        border: none;
+    }
+}
+
+.sorting-items {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    width: 100%;
+    padding-right: 20px;
+}
+
+.sorting-button {
+    height: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-bottom: 1px dotted #ee3643;
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+
+    &:hover {
+        color: #000000;
+        border-bottom: 1px solid #ee3643;
+    }
+}
+
+.sorting-up,
+.sorting-down,
+.sorting-button {
+    cursor: pointer;
+}
+
+.sorting-button.active {
+    color: #ee3643;
+    border: none;
+}
+
+.product-cards .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.page-list {
+    display: flex;
+    justify-content: space-between;
+    width: 284px;
+    margin-bottom: 60px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.page-item {
+    width: 38px;
+    height: 38px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 0 1px #e5e5e5;
+    box-shadow: inset 0 0 0 1px #e5e5e5;
+
+    a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: #000000;
+    }
+}
+
+.activ-page a {
+    background-color: #ee3643;
+    color: #ffffff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 3px;
+}
+
+.next {
+    width: 140px;
+}
+
+.modal-cart-button-continue:hover,
+.button-filters:hover,
+.page-item:hover {
+    -webkit-box-shadow: inset 0 0 0 1px #bdc6ca;
+    box-shadow: inset 0 0 0 1px #bdc6ca;
+}
+
+.modal-cart-button-continue:active,
+.button-filters:active,
+.page-item:active {
+    -webkit-box-shadow: inset 0 0 0 1px #ee3643;
+    box-shadow: inset 0 0 0 1px #ee3643;
+    padding: 0; /* Для Mozilla Firefox без этого правила, при клике текст смещается  */
+}

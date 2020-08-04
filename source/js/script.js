@@ -274,9 +274,9 @@ abcSortRevers.on('click', function () {
 
 ///////////////////////////////////////////////////////////////////////////////// Range jquery slider
 
-const INITIAL_RANGE_VALUES = [3000, 95000];
+const INITIAL_RANGE_VALUES = [500, 5000];
 const MIN_RANGE = 0;
-const MAX_RANGE = 100000;
+const MAX_RANGE = 5500;
 let itemsArrRange = [];
 const headerPrice = $('.js-filter-header');
 
@@ -386,3 +386,21 @@ $('.js-clear-all').on('click', function () {
     setValueToInputs();
     setHandleValues(INITIAL_RANGE_VALUES);
 });
+
+const config = {
+    attributes: true,
+};
+
+const sliderRangeColor = document.querySelector('.ui-slider-range');
+
+const callback = function (mutationsList, observer) {
+    for (let mutation of mutationsList) {
+        if (mutation.type === 'attributes') {
+            sortsProductsByRange();
+        }
+    }
+};
+
+const observer = new MutationObserver(callback);
+
+observer.observe(sliderRangeColor, config);

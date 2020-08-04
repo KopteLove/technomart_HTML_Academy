@@ -1,0 +1,87 @@
+/*=====================================================================
+                                                           catalog-page
+=====================================================================*/
+
+.color-red {
+    background-color: #ee3643;
+}
+
+.user-account {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 46px;
+    margin-left: auto;
+
+    a {
+        position: relative;
+    }
+
+    svg {
+        fill: #c5c5c5;
+
+        &:nth-of-type(1) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 13px;
+        }
+    }
+
+    .exit {
+        position: absolute;
+        width: 40px;
+        height: 44px;
+        right: 4px;
+
+        &:hover svg {
+            fill: #32425c;
+        }
+
+        &:active svg {
+            fill: #c5c5c5;
+        }
+    }
+
+    .btn-user {
+
+        &:hover svg {
+            fill: #32425c;
+        }
+
+        &:active svg {
+            fill: #c5c5c5;
+        }
+    }
+}
+
+.btn-user span {
+    margin: auto;
+    padding-left: 46px;
+    padding-right: 67px;
+}
+
+.user-cabinet {
+    width: 210px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+    margin-left: 17px;
+
+    a {
+        font-family: Cuprum, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        color: #32425c;
+        text-decoration: underline;
+
+        &:hover {
+            color: #ee3643;
+        }
+
+        &:active {
+            opacity: 0.3;
+            color: #32425c;
+        }
+    }
+}

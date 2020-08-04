@@ -1,0 +1,27 @@
+/*=====================================================================
+                                                              modal-map
+=====================================================================*/
+.map-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 940px;
+    height: 446px;
+    margin-left: -470px;
+    margin-top: -223px;
+    border-radius: 3px;
+    box-shadow: 0 0 16px 8px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+}
+
+.map-popup iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+}
+
+.js-modal-write-us-block,
+.js-map-block {
+    display: block;
+}
