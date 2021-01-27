@@ -2,7 +2,7 @@
     "name": "technomart",
     "version": "17.0.0",
     "private": true,
-    "description": "Личный проект «КТехномарт",
+    "description": "Личный проект «Техномарт",
     "devDependencies": {
         "@htmlacademy/editorconfig-cli": "1.x",
         "autoprefixer": "^9.5.x",
