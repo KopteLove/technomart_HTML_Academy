@@ -9,7 +9,8 @@ const webp = require('gulp-webp');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const csso = require('gulp-csso');
-const minify = require('gulp-minify');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
 const server = require('browser-sync').create();
 const del = require('del');
 const htmlmin = require('gulp-htmlmin');
@@ -32,7 +33,10 @@ gulp.task('css', function () {
 
 gulp.task('js', function () {
     return gulp.src('source/js/script.js')
-        .pipe(minify())
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
+        .pipe(uglify())
         .pipe(rename('script.min.js'))
         .pipe(gulp.dest('build/js'))
 });

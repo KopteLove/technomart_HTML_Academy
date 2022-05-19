@@ -4,20 +4,23 @@
     "private": true,
     "description": "Личный проект «Техномарт",
     "devDependencies": {
+        "@babel/core": "^7.17.12",
+        "@babel/preset-env": "^7.17.12",
         "@htmlacademy/editorconfig-cli": "1.x",
         "autoprefixer": "^9.5.x",
         "browser-sync": "^2.26.10",
         "del": "^5.1.x",
         "gulp": "^4.0.x",
+        "gulp-babel": "^8.0.0",
         "gulp-csso": "^4.0.x",
         "gulp-htmlmin": "^5.0.x",
         "gulp-imagemin": "^6.2.x",
-        "gulp-minify": "^3.1.0",
         "gulp-plumber": "^1.2.x",
         "gulp-postcss": "^8.0.x",
         "gulp-rename": "^2.0.x",
         "gulp-sass": "^4.0.x",
         "gulp-sourcemaps": "^2.6.x",
+        "gulp-uglify": "^3.0.2",
         "gulp-webp": "^4.0.x",
         "node-sass": "^4.13.x",
         "stylelint": "^13.5.0",
@@ -43,6 +46,5 @@
     ],
     "engines": {
         "node": "12.13.0"
-    },
-    "dependencies": {}
+    }
 }
