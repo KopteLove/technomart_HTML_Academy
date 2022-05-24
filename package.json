@@ -22,7 +22,7 @@
         "gulp-sourcemaps": "^2.6.x",
         "gulp-uglify": "^3.0.2",
         "gulp-webp": "^4.0.x",
-        "node-sass": "^4.13.x",
+        "node-sass": "^7.0.x",
         "stylelint": "^13.5.0",
         "stylelint-config-htmlacademy": "^0.1.x"
     },
