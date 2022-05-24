@@ -1,10 +1,36 @@
 const link = $('.button-write-us');
 const popupForm = $('.modal-write-us');
 const closeForm = $('.close-form');
+const mapImg = $('.map-img');
+const map = $('.map-popup');
+const closeMap = $('.close-map');
+const cart = $('.modal-cart');
+const buy = $('.button-buy');
+const basket = $('.basket');
+const closeCart = $('.close-cart');
+const continueBuy = $('.modal-cart-button-continue');
+const order = $('.modal-cart-button-buy');
+const basketQuantity = $('.js-basket-quantity');
+const btnBookmark = $('.button-bookmark');
+const bookmark = $('.bookmark');
+const list = $('.product-list');
+const upPrice = $('.sorting-price-up');
+const downPrice = $('.sorting-price-down');
+const abcSort = $('.sorting-abc');
+const abcSortRevers = $('.sorting-abc-revers');
+const allSortBtn = $('.sorting-button');
+const range = $('.js-price-range');
+const INITIAL_RANGE_VALUES = [500, 5000];
+const MIN_RANGE = 0;
+const MAX_RANGE = 5500;
+let itemsArr = [];
+let bookmarkQuantity = $('.js-bookmark-quantity');
+let bookmarkCount = 0;
+let basketCount = 0;
 let form = $('.modal-write-us-form');
-let login = $('[name=name]');
-let email = $('[name=email]');
-let comment = $('[name=user-comment]');
+let login = $('#user-name');
+let email = $('#user-email');
+let comment = $('#comment');
 
 let storageLogin = '';
 let storageEmail = '';
@@ -25,163 +51,247 @@ try {
     isSupportStorageEmail = false;
 }
 
-///////////////////////////////////////////////////////////////////////////////// Напишите нам
+$(function () {
+    ///////////////////////////////////////////////////////////////////////////////// Напишите нам
 
-link.on('click', function (evt) {
-    evt.preventDefault();
-    console.log('Клик по ссылке напишите нам');
-    popupForm.addClass('js-modal-show');
-    if (storageLogin) {
-        login.value = storageLogin;
-        email.focus();
-        email.value = storageEmail;
-        comment.focus()
-    } else {
-        login.focus()
-    }
-});
-
-closeForm.on('click', function (evt) {
-    evt.preventDefault();
-    console.log('Клик по крестику закрыть');
-    popupForm.removeClass('js-modal-show');
-    popupForm.removeClass('js-modal-error');
-});
-
-form.on('submit', function (evt) {
-    if (!login.value || !email.value || !comment.value) {
+    link.on('click', function (evt) {
         evt.preventDefault();
-        console.log('Нужно заполнить форму!!!');
-        popupForm.removeClass('js-modal-error');
-        popupForm.offsetWidth = popupForm.offsetWidth;
-        popupForm.addClass('js-modal-error');
-    } else {
-        if (isSupportStorageLogin) {
-            localStorage.setItem('login', login.value);
-        }
-        if (isSupportStorageEmail) {
-            localStorage.setItem('email', email.value);
-        }
-    }
-});
+        popupForm.addClass('js-modal-show');
 
-$(window).on('keydown', function (evt) {
-    if (evt.keyCode === 27) {
-        if (popupForm.hasClass('js-modal-show')) {
+        setTimeout(() => popupForm.addClass('open'), 800);
+        if (storageLogin) {
+            login.val(storageLogin);
+            email.focus();
+            email.val(storageEmail);
+            comment.focus();
+        } else {
+            login.focus();
+        }
+    });
+
+    closeForm.on('click', function (evt) {
+        evt.preventDefault();
+        popupForm.removeClass('js-modal-show js-modal-error open');
+    });
+
+    form.on('submit', function (evt) {
+        if (login.val().length < 3 || !validateEmail(email.val()) || !comment.val()) {
             evt.preventDefault();
-            popupForm.removeClass('js-modal-show');
-            popupForm.removeClass('js-modal-error');
+            popupForm.addClass('js-modal-error');
+            setTimeout(() => popupForm.removeClass('js-modal-error'), 800);
+
+            if(login.val().length < 3) {
+                login.focus();
+            } else if(!validateEmail(email.val())) {
+                email.focus();
+            } else {
+                comment.focus();
+            }
+        } else {
+            if (isSupportStorageLogin) {
+                localStorage.setItem('login', login.val());
+            }
+
+            if (isSupportStorageEmail) {
+                localStorage.setItem('email', email.val());
+            }
         }
-    }
-});
+    });
 
-///////////////////////////////////////////////////////////////////////////////// Карта
+    ///////////////////////////////////////////////////////////////////////////////// Карта
 
-const mapImg = $('.map-img');
-const map = $('.map-popup');
-const closeMap = $('.close-map');
+    mapImg.on('click', function (evt) {
+        evt.preventDefault();
+        map.addClass('js-modal-show');
+    });
 
-mapImg.on('click', function (evt) {
-    evt.preventDefault();
-    console.log('Клик по мини-карте');
-    map.addClass('js-modal-show');
-});
+    closeMap.on('click', function (evt) {
+        evt.preventDefault();
+        map.removeClass('js-modal-show');
+    });
 
-closeMap.on('click', function (evt) {
-    evt.preventDefault();
-    console.log('Клик по крестику закрыть');
-    map.removeClass('js-modal-show');
-});
+    ///////////////////////////////////////////////////////////////////////////////// Покупка товара
 
-$(window).on('keydown', function (evt) {
-    if (evt.keyCode === 27) {
-        if (map.hasClass('js-modal-show')) {
-            evt.preventDefault();
-            map.removeClass('js-modal-show');
-        }
-    }
-});
-
-///////////////////////////////////////////////////////////////////////////////// Покупка товара
-
-const cart = $('.modal-cart');
-const buy = $('.button-buy');
-const basket = $('.basket');
-const closeCart = $('.close-cart');
-const continueBuy = $('.modal-cart-button-continue');
-const order = $('.modal-cart-button-buy');
-const basketQuantity = $('.js-basket-quantity');
-let basketCount = 0;
-
-basketQuantity.text(basketCount + '');
-
-buy.click(function (evt) {
-    evt.preventDefault();
-    console.log('Клик по кнопки купить');
-    cart.addClass('js-modal-show');
-    basket.addClass('color-red');
-    basketCount++;
     basketQuantity.text(basketCount + '');
-});
 
-closeCart.on('click', function (evt) {
-    evt.preventDefault();
-    console.log('Клик по крестику закрыть');
-    cart.removeClass('js-modal-show');
-});
+    buy.click(function (evt) {
+        evt.preventDefault();
+        cart.addClass('js-modal-show');
+        basket.addClass('color-red');
+        basketCount++;
+        basketQuantity.text(basketCount + '');
+    });
 
-order.on('click', function (evt) {
-    evt.preventDefault();
-    console.log('Клик по кнопке оформить заказ');
-    cart.removeClass('js-modal-show');
-});
+    closeCart.on('click', function (evt) {
+        evt.preventDefault();
+        cart.removeClass('js-modal-show');
+    });
 
-continueBuy.on('click', function (evt) {
-    evt.preventDefault();
-    console.log('Клик по кнопке продолжить покупки');
-    cart.removeClass('js-modal-show');
-});
+    order.on('click', function (evt) {
+        evt.preventDefault();
+        cart.removeClass('js-modal-show');
+    });
 
-$(window).on('keydown', function (evt) {
-    if (evt.keyCode === 27) {
-        if (cart.hasClass('js-modal-show')) {
-            evt.preventDefault();
-            cart.removeClass('js-modal-show');
-        }
-    }
-});
+    continueBuy.on('click', function (evt) {
+        evt.preventDefault();
+        cart.removeClass('js-modal-show');
+    });
 
-///////////////////////////////////////////////////////////////////////////////// Добавление в закладки
+    ///////////////////////////////////////////////////////////////////////////////// Добавление в закладки
 
-const btnBookmark = $('.button-bookmark');
-const bookmark = $('.bookmark');
-let bookmarkQuantity = $('.js-bookmark-quantity');
-let bookmarkCount = 0;
-
-bookmarkQuantity.text(bookmarkCount + '');
-
-btnBookmark.click(function (evt) {
-    evt.preventDefault();
-    console.log('Клик по кнопке в закладки');
-    bookmark.addClass('color-red');
-    bookmarkCount++;
     bookmarkQuantity.text(bookmarkCount + '');
+
+    btnBookmark.click(function (evt) {
+        evt.preventDefault();
+        bookmark.addClass('color-red');
+        bookmarkCount++;
+        bookmarkQuantity.text(bookmarkCount + '');
+    });
+
+    ///////////////////////////////////////////////////////////////////////////////// Сортировка карточек товаров
+
+    upPrice.on('click', function () {
+        allSortBtn.removeClass('active');
+        getArr(upPrice);
+        sortPrice();
+        embedsNewList(itemsArr);
+    });
+
+    downPrice.on('click', function () {
+        allSortBtn.removeClass('active');
+        getArr(downPrice);
+        sortPrice();
+        embedsNewList(itemsArr);
+    });
+
+    abcSort.on('click', function () {
+        allSortBtn.removeClass('active');
+        getArr(abcSort);
+        sortAbc();
+        embedsNewList(itemsArr);
+    });
+
+    abcSortRevers.on('click', function () {
+        allSortBtn.removeClass('active');
+        getArr(abcSortRevers);
+        sortAbc();
+        embedsNewList(itemsArr);
+    });
+
+    $('.filters-radio-item').on('change', function () {
+        sortProductByPower();
+    });
+
+    $('.filters-checkbox-item').on('change', function () {
+        sortProductByFirm();
+    });
+
+    range.slider({
+        range: true,
+        min: MIN_RANGE,
+        max: MAX_RANGE,
+        values: INITIAL_RANGE_VALUES,
+        slide: function (event, ui) {
+            $('.js-price-min').val(ui.values[0]);
+            $('.js-price-max').val(ui.values[1]);
+            setHandleValues(ui.values);
+            sortsProductsByRange();
+        }
+    });
+
+    setValueToInputs();
+
+    $('.js-price-min').change(function () {
+        let minValue = $('.js-price-min').val();
+        let maxValue = $('.js-price-max').val();
+        if (Number(minValue) <= Number(maxValue)) {
+            if (Number(minValue) < MIN_RANGE) {
+                minValue = MIN_RANGE;
+                $('.js-price-min').val(minValue);
+            }
+            range.slider('values', 0, minValue);
+            $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(minValue + '₽');
+            sortsProductsByRange();
+        } else {
+            range.slider('values', 0, maxValue);
+            $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(maxValue + '₽');
+            $('.js-price-min').val(maxValue);
+            sortsProductsByRange();
+        }
+    });
+
+    $('.js-price-max').change(function () {
+        let minValue = $('.js-price-min').val();
+        let maxValue = $('.js-price-max').val();
+        if (Number(maxValue) >= Number(minValue)) {
+            if (Number(maxValue) > MAX_RANGE) {
+                maxValue = MAX_RANGE;
+                $('.js-price-max').val(maxValue);
+            }
+            range.slider('values', 1, maxValue);
+            $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(maxValue + '₽');
+            sortsProductsByRange();
+        } else {
+            range.slider('values', 1, minValue);
+            $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(minValue + '₽');
+            $('.js-price-max').val(minValue);
+            sortsProductsByRange();
+        }
+    });
+
+    setTimeout(function () {
+        let handleValue = $('<span class="ui-slider-handle-value"></span>');
+        let handleValueMin = handleValue.text(range.slider('values', 0) + '₽');
+        $('.js-price-range .ui-slider-handle:nth-child(2)').append(handleValueMin);
+    });
+
+    setTimeout(function () {
+        let handleValue = $('<span class="ui-slider-handle-value"></span>');
+        let handleValueMax = handleValue.text(range.slider('values', 1) + '₽');
+        $('.js-price-range .ui-slider-handle:nth-child(3)').append(handleValueMax);
+    });
+
+    $('.js-clear-all').on('click', function () {
+        range.slider('values', INITIAL_RANGE_VALUES);
+        setValueToInputs();
+        setHandleValues(INITIAL_RANGE_VALUES);
+    });
+
+    $(window).on('keydown', function (evt) {
+        if (evt.keyCode === 27) {
+            if (popupForm.hasClass('js-modal-show')) {
+                evt.preventDefault();
+                popupForm.removeClass('js-modal-show');
+                popupForm.removeClass('js-modal-error');
+            }
+
+            if (map.hasClass('js-modal-show')) {
+                evt.preventDefault();
+                map.removeClass('js-modal-show');
+            }
+
+            if (cart.hasClass('js-modal-show')) {
+                evt.preventDefault();
+                cart.removeClass('js-modal-show');
+            }
+        }
+    });
 });
 
-///////////////////////////////////////////////////////////////////////////////// Сортировка карточек товаров
+function validateEmail(email) {
+    let reg = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
+    return reg.test(email);
+}
 
-const list = $('.product-list');
-let items = list.children();
-let itemsArr = [];
-const upPrice = $('.sorting-price-up');
-const downPrice = $('.sorting-price-down');
-const abcSort = $('.sorting-abc');
-const abcSortRevers = $('.sorting-abc-revers');
-
-function getArr(el) {
+function getArr(el = false) {
+    let items = list.children();
     itemsArr = [];
-    el.addClass('active');
-    for (var i = 0; i < items.length; ++i) {
+
+    if (el) {
+        el.addClass('active');
+    }
+
+    for (let i = 0; i < items.length; ++i) {
         itemsArr.push(items[i]);
     }
 }
@@ -232,91 +342,55 @@ function embedsNewList(arr) {
     }
 }
 
-upPrice.on('click', function () {
-    downPrice.removeClass('active');
-    abcSort.removeClass('active');
-    abcSortRevers.removeClass('active');
-    itemsArr = [];
-    getArr(upPrice);
-    sortPrice();
-    embedsNewList(itemsArr);
-});
+function sortsProductsByRange() {
+    getArr();
 
-downPrice.on('click', function () {
-    upPrice.removeClass('active');
-    abcSort.removeClass('active');
-    abcSortRevers.removeClass('active');
-    itemsArr = [];
-    getArr(downPrice);
-    sortPrice();
-    embedsNewList(itemsArr);
-});
-
-abcSort.on('click', function () {
-    downPrice.removeClass('active');
-    upPrice.removeClass('active');
-    abcSortRevers.removeClass('active');
-    itemsArr = [];
-    getArr(abcSort);
-    sortAbc();
-    embedsNewList(itemsArr);
-});
-
-abcSortRevers.on('click', function () {
-    upPrice.removeClass('active');
-    abcSort.removeClass('active');
-    downPrice.removeClass('active');
-    itemsArr = [];
-    getArr(abcSortRevers);
-    sortAbc();
-    embedsNewList(itemsArr);
-});
-
-///////////////////////////////////////////////////////////////////////////////// Range jquery slider
-
-const INITIAL_RANGE_VALUES = [500, 5000];
-const MIN_RANGE = 0;
-const MAX_RANGE = 5500;
-let itemsArrRange = [];
-const headerPrice = $('.js-filter-header');
-
-$('.js-price-range').slider({
-    range: true,
-    min: MIN_RANGE,
-    max: MAX_RANGE,
-    values: INITIAL_RANGE_VALUES,
-    slide: function (event, ui) {
-        $('.js-price-min').val(ui.values[0]);
-        $('.js-price-max').val(ui.values[1]);
-        setHandleValues(ui.values);
-    }
-});
-
-function clearList() {
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
+    for (let i = 0; i < itemsArr.length; ++i) {
+        if ($(itemsArr[i]).attr('data-price') >= range.slider('values', 0) &&
+            $(itemsArr[i]).attr('data-price') <= range.slider('values', 1)) {
+            $(itemsArr[i]).removeClass('hide');
+        } else {
+            $(itemsArr[i]).addClass('hide');
+        }
     }
 }
 
-function sortsProductsByRange() {
-    getArr(headerPrice);
+function sortProductByPower() {
+    getArr();
 
-    for (let i = 0; i < itemsArr.length; ++i) {
-        if (itemsArr[i].getAttribute('data-price') >= $('.js-price-range').slider('values', 0) && itemsArr[i].getAttribute('data-price') <= $('.js-price-range').slider('values', 1)) {
-            itemsArrRange.push(itemsArr[i]);
-            itemsArr[i].style.display = 'flex';
-        } else {
-            itemsArrRange.push(itemsArr[i]);
-            itemsArr[i].style.display = 'none';
+    let powerType = $('[name="power"]:checked').val();
+
+    if (powerType === 'all') {
+        $('.product-item').removeClass('hide-power');
+    } else {
+        for (let i = 0; i < itemsArr.length; ++i) {
+            if ($(itemsArr[i]).attr('data-power') === powerType) {
+                $(itemsArr[i]).removeClass('hide-power');
+            } else {
+                $(itemsArr[i]).addClass('hide-power');
+            }
         }
     }
-    clearList();
-    embedsNewList(itemsArrRange);
-    itemsArrRange = [];
+}
+
+function sortProductByFirm() {
+    const firmsNames = $('.filters-checkbox-item input:checked').get().map(item => $(item).attr('name'));
+
+    if (firmsNames.length === 0) {
+        $('.product-item').removeClass('hide-firm');
+    } else {
+        $('.product-item').each((index, item) => {
+            if (firmsNames.includes($(item).attr('data-firm'))) {
+                $(item).removeClass('hide-firm');
+            } else {
+                $(item).addClass('hide-firm');
+            }
+        });
+    }
 }
 
 function getRangeValues(numberValue) {
-    return $('.js-price-range').slider('values', numberValue);
+    return range.slider('values', numberValue);
 }
 
 function setValueToInputs() {
@@ -328,79 +402,3 @@ function setHandleValues(values) {
     $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(values[0] + '₽');
     $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(values[1] + '₽');
 }
-
-setValueToInputs();
-
-$('.js-price-min').change(function () {
-    let minValue = $('.js-price-min').val();
-    let maxValue = $('.js-price-max').val();
-    if (Number(minValue) <= Number(maxValue)) {
-        if (Number(minValue) < MIN_RANGE) {
-            minValue = MIN_RANGE;
-            $('.js-price-min').val(minValue);
-        }
-        $('.js-price-range').slider('values', 0, minValue);
-        $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(minValue + '₽');
-        sortsProductsByRange();
-    } else {
-        $('.js-price-range').slider('values', 0, maxValue);
-        $('.ui-slider-handle:nth-child(2) .ui-slider-handle-value').text(maxValue + '₽');
-        $('.js-price-min').val(maxValue);
-        sortsProductsByRange();
-    }
-});
-
-$('.js-price-max').change(function () {
-    let minValue = $('.js-price-min').val();
-    let maxValue = $('.js-price-max').val();
-    if (Number(maxValue) >= Number(minValue)) {
-        if (Number(maxValue) > MAX_RANGE) {
-            maxValue = MAX_RANGE;
-            $('.js-price-max').val(maxValue);
-        }
-        $('.js-price-range').slider('values', 1, maxValue);
-        $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(maxValue + '₽');
-        sortsProductsByRange();
-    } else {
-        $('.js-price-range').slider('values', 1, minValue);
-        $('.ui-slider-handle:nth-child(3) .ui-slider-handle-value').text(minValue + '₽');
-        $('.js-price-max').val(minValue);
-        sortsProductsByRange();
-    }
-});
-
-setTimeout(function () {
-    let handleValue = $('<span class="ui-slider-handle-value"></span>');
-    let handleValueMin = handleValue.text($('.js-price-range').slider('values', 0) + '₽');
-    $('.js-price-range .ui-slider-handle:nth-child(2)').append(handleValueMin);
-});
-
-setTimeout(function () {
-    let handleValue = $('<span class="ui-slider-handle-value"></span>');
-    let handleValueMax = handleValue.text($('.js-price-range').slider('values', 1) + '₽');
-    $('.js-price-range .ui-slider-handle:nth-child(3)').append(handleValueMax);
-});
-
-$('.js-clear-all').on('click', function () {
-    $('.js-price-range').slider('values', INITIAL_RANGE_VALUES);
-    setValueToInputs();
-    setHandleValues(INITIAL_RANGE_VALUES);
-});
-
-const config = {
-    attributes: true,
-};
-
-const sliderRangeColor = document.querySelector('.ui-slider-range');
-
-const callback = function (mutationsList, observer) {
-    for (let mutation of mutationsList) {
-        if (mutation.type === 'attributes') {
-            sortsProductsByRange();
-        }
-    }
-};
-
-const observer = new MutationObserver(callback);
-
-observer.observe(sliderRangeColor, config);
