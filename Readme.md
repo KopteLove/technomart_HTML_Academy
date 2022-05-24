@@ -53,3 +53,5 @@ _`.editorconfig`, `.gitattributes`, `.gitignore`, `Contributing.md`, `Readme.md`
 #### 7. Проверка линтером:
 
 Запустите в терминале ```npm run test```
+
+#### 8. Рабочая версия [Техномарт](https://koptelove.github.io/technomart_HTML_Academy/)
