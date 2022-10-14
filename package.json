@@ -14,7 +14,7 @@
         "gulp-babel": "^8.0.0",
         "gulp-csso": "^4.0.x",
         "gulp-htmlmin": "^5.0.x",
-        "gulp-imagemin": "^6.2.x",
+        "gulp-imagemin": "^8.0.x",
         "gulp-plumber": "^1.2.x",
         "gulp-postcss": "^8.0.x",
         "gulp-rename": "^2.0.x",
